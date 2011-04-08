@@ -36,6 +36,30 @@
 #define CS		0
 #define SDO		6
 
+#define DDR_SPI	DDRB
+#define DD_MOSI	DDB5
+#define DD_MISO	DDB6
+#define DD_SCK	DDB7
+#define DD_SS	DDB4
+#define DD_CS	DDB0
+
+void rf12_tr_init()
+{
+	
+}
+
+unsigned short rf12_trans_hw(unsigned short wert)
+{
+	//Ausgänge defnieren
+	DDR_SPI |= (1<<DD_MOSI) | (1<<DD_SCK) |	(1<<DD_DD_CS);
+	//Eingänge definieren
+	DDR_SPI &= ~(1<<DD_MISO);
+
+	//SPI Initialisieren
+	SPCR |= 
+}
+
+
 volatile rf_data strRX;
 uint8_t INT_Status;
 uint8_t i;
@@ -62,6 +86,9 @@ unsigned short rf12_trans(unsigned short wert)
 	sbi(RF_PORT, CS);
 	return werti;
 }
+
+
+
 
 void rf12_init(void)
 {
