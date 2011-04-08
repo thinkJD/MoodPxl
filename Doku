@@ -1,0 +1,37 @@
+Grundfunktionen:
+1. Fest vorgegebene Farben zur Auswahl 10 Speicher
+Blau, Rot, Gelb, Grün, Lila, Pink, Orange, 
+
+2. Farbe frei einstellen
+
+3. Farbwechsel als parametrierbare Macros 10 Speicher
+Film, Buch, Sport, Relax, 
+
+4. Syncmode Lampe hängt via Funkschnittstelle an PC
+
+5 Dimmfunktion (einfach)
+
+
+http://de.wikipedia.org/wiki/Weber-Fechner-Gesetz
+http://www.mikrocontroller.net/articles/LED-Fading
+
+Der Pulldown zieht den Power Mosfet Gate auf Masse. So ist die Lampe beim einschalten spannungslos.
+Erst, wenn der Port gesetzt wird schaltet er durch und verbindet die Lampe mit masse. VOrher 
+werden die PWM ausgänge initialisiert. 
+
+Es reicht nicht die masse abzuschalten. Der Treiber haut den Strom über den Steuertransistor raus 
+und grillt die Steuerelektronik. Kleiner Bastard!
+
+
+http://www.sicklinger.com/de/downloads/func-startdown/4/ 
+TempSensor
+
+Die Lib hat sich als nicht tauglich erwiesen. Das Modul hängt an den Interrupts. Daher habe
+ich einen Wrapper um den vorhandenen COde geschrieben. 
+Das Modul in der neuen Version hat dieses Problem nicht mehr.
+
+Die Datenpakete müssen mit einem CRC-Check versehen werden.
+
+Die Module verhalten sich nicht immer so wie man es erwartet. 
+Ein modul brachte nie einen INterrupt. Das neue Modul funktioniert so weit.
+

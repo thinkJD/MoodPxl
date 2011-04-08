@@ -1,0 +1,22 @@
+
+$ cat .gitignore
+
+# Can ignore specific files
+.DS_Store
+.Doku
+
+# Use wildcards as well
+*~
+*.swp
+*.o
+*.hex
+*.bin
+*.srec
+*.map
+*.elf
+*.lsr
+
+
+# Can also ignore all directories and files in a directory.
+tmp/**/*
+bin/**/*

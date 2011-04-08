@@ -1,0 +1,1 @@
+uint8_t ArrayCopy(int Dest[], int Src[], int nCount);
