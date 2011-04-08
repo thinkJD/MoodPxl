@@ -1,3 +1,21 @@
+/*
+    MoodPxl a fully configurable, remote controlled, moodlamp.
+    Copyright (C) 2011  Jan-Daniel Georgens jd.georgens@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include <stdlib.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
@@ -15,18 +33,18 @@
 int main(void)
 {
 	//Initialisieren
-    uart1_init( UART_BAUD_SELECT(UART_BAUD_RATE,F_CPU) );  //Uart 1 initialisieren (Debug)
+	uart1_init( UART_BAUD_SELECT(UART_BAUD_RATE,F_CPU) );  //Uart 1 initialisieren (Debug)
 //	ds1820_init();	//Temperatursensor initialisieren
 	led_init();		//LED Initialisieren
 
-    //Funkmodul initialisieren
+	//Funkmodul initialisieren
 	rf12_init();					// ein paar Register setzen (z.B. CLK auf 10MHz)
 	rf12_setfreq(RF12FREQ(433.25));	// Sende/Empfangsfrequenz auf 433,92MHz einstellen
 	rf12_setbandwidth(4, 1, 4);		// 200kHz Bandbreite, -6dB Verstärkung, DRSSI threshold: -79dBm 
 	rf12_setbaud(19200);			// 19200 baud
 	rf12_setpower(0, 6);			// 1mW Ausgangangsleistung, 120kHz Frequenzshift
 
-    sei();		//Interrupts aktivieren
+	sei();		//Interrupts aktivieren
 
 
 	struct rgb Color;
@@ -35,7 +53,7 @@ int main(void)
 	Color.Red = 255;
 	Color.Green = 0;
 	Color.Blue = 0;	
-  	set_led_color(&Color);
+	set_led_color(&Color);
 	_delay_ms(500);
 	
 	
@@ -43,9 +61,9 @@ int main(void)
 	
 	struct hsv color2;
 		
-    color2.hue = 0;
-    color2.saturation = 100;
-    color2.value = 100;
+	color2.hue = 0;
+	color2.saturation = 100;
+	color2.value = 100;
 	uint16_t x;
 	uint8_t* buf_temp;
 	
@@ -207,13 +225,13 @@ void Demo1()
 
 void Demo_2()
 {
- 	for (x = 0; x < 360; x++)
- 	{
+	for (x = 0; x < 360; x++)
+	{
 		color2.hue=x;
 		hsv2rgb(&color2, &Color);
 		set_led_color(&Color);
 		_delay_ms(50);
- 	}
+	}
 }
 
 	
