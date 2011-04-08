@@ -72,7 +72,7 @@ extern void set_led_color(struct rgb *Color);
 uint16_t human_correction (uint8_t value);
 extern void led_on(void);
 extern void led_off(void);
-extern void set_fanspeed(uint8_t speed);
+extern void set_fanspeed(uint16_t speed);
 extern void hsv2rgb(struct hsv *Color_hsv, struct rgb *Color_rgb);
 
 

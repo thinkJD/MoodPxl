@@ -29,46 +29,6 @@
 #define F_CPU 16000000
 
 
-void command(uint8_t *buf)
-{
-	/*
-	Folgende Kommands sind möglich:
-	0x00	=	MoodPxl einschalten
-	0x01	=	MoodPxl ausschalten
-
-	0x02	=	MoodPxl Demo 1
-	0x03	=	MoodPxl Demo 2
-	0x04	=	MoodPxl Demo 3
-			
-	0x10	=	Fader_Init Param: int Zeit; byte Rot; 
-						byte Grün; byte Gelb; int Verweilzeit;
-	0x11	=	Farbe_Konstant
-	0x02	=	Programm starten Paran: 
-	*/
-		
-	uint8_t m_comand = buf[0];
-	struct rgb Color;
-		
-	switch (m_comand) {
-		case 0x00:
-			led_off();
-			break;
-				
-		case 0x01:
-			led_on();
-			break;
-				
-		case 0x10:
-			
-			Color.Red = buf[1];
-			Color.Green = buf[2];
-			Color.Blue = buf[3];
-			set_led_color(&Color);
-			break;
-				
-	}		
-}
-
 
 int main(void)
 {
@@ -87,15 +47,12 @@ int main(void)
 
 
 	struct rgb Color;
-	
 	Color.Red = 35;
 	Color.Green = 55;
 	Color.Blue = 45;	
-	set_led_color(&Color);
+
 	
 	led_on();
-	_delay_ms(250);
-	
 	uint8_t buf_temp[10];
 	
 	//Mainloop
@@ -104,11 +61,18 @@ int main(void)
 		//Wenn Puffer lesebereit ist
 		if (rf12_getStatus() == rf12_data_status_ready)
 		{
-			rf12_getData(buf_temp); 
+			rf12_getData(&buf_temp); 
+
+			Color.Red = buf_temp[0];
+			Color.Green = buf_temp[1];
+			Color.Blue = buf_temp[2];
+			
+			set_led_color(&Color);
+		
 			rf_data_reset();
-			command(buf_temp);
 		}
 		
+		_delay_ms(10);
 		
 		
 	}
@@ -116,7 +80,48 @@ int main(void)
 		
 		
 
+		
 
+		
+	
+
+// void command(uint8_t* buf)
+// {
+// 	/*
+// 	Folgende Kommands sind möglich:
+// 	0x00	=	MoodPxl einschalten
+// 	0x01	=	MoodPxl ausschalten
+// 
+// 	0x02	=	MoodPxl Demo 1
+// 	0x03	=	MoodPxl Demo 2
+// 	0x04	=	MoodPxl Demo 3
+// 			
+// 	0x10	=	Fader_Init Param: int Zeit; byte Rot; 
+// 						byte Grün; byte Gelb; int Verweilzeit;
+// 	0x11	=	Farbe_Konstant
+// 	0x02	=	Programm starten Paran: 
+// 	*/
+// 	uint8_t length = buf[0];
+// 	uint8_t Comand = buf[1];
+// 		
+// 	switch (Command) {
+// 		case 0x00:
+// 			led_off();
+// 			break;
+// 				
+// 		case 0x01:
+// 			led_on();
+// 			break;
+// 				
+// 		case 0x02:
+// 			//Demo1();
+// 			break;
+// 				
+// 		case 0x10:
+// 			//fader_init();
+// 			break;
+// 	}		
+// }
 
 
 // #define r_Demo1 0	//Demo 1 läuft

@@ -36,28 +36,28 @@
 #define CS		0
 #define SDO		6
 
-#define DDR_SPI	DDRB
-#define DD_MOSI	DDB5
-#define DD_MISO	DDB6
-#define DD_SCK	DDB7
-#define DD_SS	DDB4
-#define DD_CS	DDB0
-
-void rf12_tr_init()
-{
-	
-}
-
-unsigned short rf12_trans_hw(unsigned short wert)
-{
-	//Ausgänge defnieren
-	DDR_SPI |= (1<<DD_MOSI) | (1<<DD_SCK) |	(1<<DD_DD_CS);
-	//Eingänge definieren
-	DDR_SPI &= ~(1<<DD_MISO);
-
-	//SPI Initialisieren
-	SPCR |= 
-}
+// #define DDR_SPI	DDRB
+// #define DD_MOSI	DDB5
+// #define DD_MISO	DDB6
+// #define DD_SCK	DDB7
+// #define DD_SS	DDB4
+// #define DD_CS	DDB0
+// 
+// void rf12_tr_init()
+// {
+// 	
+// }
+// 
+// unsigned short rf12_trans_hw(unsigned short wert)
+// {
+// 	//Ausgänge defnieren
+// 	DDR_SPI |= (1<<DD_MOSI) | (1<<DD_SCK) |	(1<<DD_DD_CS);
+// 	//Eingänge definieren
+// 	DDR_SPI &= ~(1<<DD_MISO);
+// 
+// 	//SPI Initialisieren
+// 	SPCR |= 
+// }
 
 
 volatile rf_data strRX;
@@ -251,6 +251,7 @@ ISR(INT1_vect)
   			{
   				rf12_ready();
 				strRX.Adress = rf12_trans(0xB000);
+				//uart1_putc(strRX.Adress);
 				strRX.Count++;
   			}
   		}
@@ -266,6 +267,7 @@ ISR(INT1_vect)
 			//Rest einfach abgeschnitten. Das ist kein Problem.
 			//Sicher gige das auch etwas elegenter.
 			strRX.Length = rf12_trans(0xB000); 	//Empfang des Längenbytes
+  			//uart1_putc(strRX.Length);
   			strRX.Count++;
   		}
   		
@@ -275,7 +277,7 @@ ISR(INT1_vect)
 }
 void rf_data_reset()
 {
-	//cli();	//Diese Methode muss atomar behandelt werden. 
+	cli();	//Diese Methode muss atomar behandelt werden. 
 
 	strRX.Count = 0;
 	strRX.Length = 0;
@@ -288,7 +290,7 @@ void rf_data_reset()
 	
 	strRX.Status = rf12_data_status_empty;
 	
-	//sei();	//Interrupts wieder an
+	sei();	//Interrupts wieder an
 	
 }
 

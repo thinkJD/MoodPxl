@@ -1,0 +1,2909 @@
+
+MoodPixel.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000100a  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .bss          000000ba  00800100  00800100  0000107e  2**0
+                  ALLOC
+  2 .stab         0000081c  00000000  00000000  00001080  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      0000013b  00000000  00000000  0000189c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_aranges 00000080  00000000  00000000  000019d7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_pubnames 00000331  00000000  00000000  00001a57  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000120a  00000000  00000000  00001d88  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000007b2  00000000  00000000  00002f92  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   0000102a  00000000  00000000  00003744  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000002e0  00000000  00000000  00004770  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000513  00000000  00000000  00004a50  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000075a  00000000  00000000  00004f63  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000088  00000000  00000000  000056bd  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 38 01 	jmp	0x270	; 0x270 <__ctors_end>
+       4:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+       8:	0c 94 be 02 	jmp	0x57c	; 0x57c <__vector_2>
+       c:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      10:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      14:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      18:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      1c:	0c 94 04 07 	jmp	0xe08	; 0xe08 <__vector_7>
+      20:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      24:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      28:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      2c:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      30:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      34:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      38:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      3c:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      40:	0c 94 d6 04 	jmp	0x9ac	; 0x9ac <__vector_16>
+      44:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      48:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      4c:	0c 94 7a 03 	jmp	0x6f4	; 0x6f4 <__vector_19>
+      50:	0c 94 28 04 	jmp	0x850	; 0x850 <__vector_20>
+      54:	0c 94 a4 03 	jmp	0x748	; 0x748 <__vector_21>
+      58:	0c 94 52 04 	jmp	0x8a4	; 0x8a4 <__vector_22>
+      5c:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      60:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      64:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      68:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+      6c:	0c 94 4a 01 	jmp	0x294	; 0x294 <__bad_interrupt>
+
+00000070 <pwmtable>:
+	...
+      80:	01 00 01 00 01 00 01 00 01 00 01 00 02 00 02 00     ................
+      90:	02 00 03 00 03 00 03 00 04 00 04 00 05 00 05 00     ................
+      a0:	06 00 06 00 07 00 07 00 08 00 09 00 09 00 0a 00     ................
+      b0:	0b 00 0b 00 0c 00 0d 00 0e 00 0f 00 10 00 10 00     ................
+      c0:	11 00 12 00 13 00 14 00 15 00 17 00 18 00 19 00     ................
+      d0:	1a 00 1b 00 1c 00 1e 00 1f 00 20 00 22 00 23 00     .......... .".#.
+      e0:	24 00 26 00 27 00 29 00 2a 00 2c 00 2e 00 2f 00     $.&.'.).*.,.../.
+      f0:	31 00 33 00 34 00 36 00 38 00 3a 00 3c 00 3d 00     1.3.4.6.8.:.<.=.
+     100:	3f 00 41 00 43 00 45 00 47 00 49 00 4c 00 4e 00     ?.A.C.E.G.I.L.N.
+     110:	50 00 52 00 54 00 57 00 59 00 5b 00 5e 00 60 00     P.R.T.W.Y.[.^.`.
+     120:	63 00 65 00 68 00 6a 00 6d 00 6f 00 72 00 75 00     c.e.h.j.m.o.r.u.
+     130:	77 00 7a 00 7d 00 80 00 83 00 85 00 88 00 8b 00     w.z.}...........
+     140:	8e 00 91 00 94 00 98 00 9b 00 9e 00 a1 00 a4 00     ................
+     150:	a8 00 ab 00 ae 00 b2 00 b5 00 b8 00 bc 00 bf 00     ................
+     160:	c3 00 c7 00 ca 00 ce 00 d2 00 d5 00 d9 00 dd 00     ................
+     170:	e1 00 e5 00 e9 00 ed 00 f1 00 f5 00 f9 00 fd 00     ................
+     180:	01 01 05 01 09 01 0d 01 12 01 16 01 1a 01 1f 01     ................
+     190:	23 01 28 01 2c 01 31 01 35 01 3a 01 3f 01 43 01     #.(.,.1.5.:.?.C.
+     1a0:	48 01 4d 01 52 01 56 01 5b 01 60 01 65 01 6a 01     H.M.R.V.[.`.e.j.
+     1b0:	6f 01 74 01 79 01 7f 01 84 01 89 01 8e 01 94 01     o.t.y...........
+     1c0:	99 01 9e 01 a4 01 a9 01 af 01 b4 01 ba 01 bf 01     ................
+     1d0:	c5 01 cb 01 d0 01 d6 01 dc 01 e2 01 e8 01 ee 01     ................
+     1e0:	f3 01 f9 01 ff 01 06 02 0c 02 12 02 18 02 1e 02     ................
+     1f0:	24 02 2b 02 31 02 38 02 3e 02 44 02 4b 02 51 02     $.+.1.8.>.D.K.Q.
+     200:	58 02 5f 02 65 02 6c 02 73 02 7a 02 80 02 87 02     X._.e.l.s.z.....
+     210:	8e 02 95 02 9c 02 a3 02 aa 02 b1 02 b8 02 c0 02     ................
+     220:	c7 02 ce 02 d5 02 dd 02 e4 02 eb 02 f3 02 fa 02     ................
+     230:	02 03 0a 03 11 03 19 03 21 03 28 03 30 03 38 03     ........!.(.0.8.
+     240:	40 03 48 03 50 03 58 03 60 03 68 03 70 03 78 03     @.H.P.X.`.h.p.x.
+     250:	80 03 88 03 91 03 99 03 a1 03 aa 03 b2 03 bb 03     ................
+     260:	c3 03 cc 03 d4 03 dd 03 e6 03 ee 03 f7 03 00 04     ................
+
+00000270 <__ctors_end>:
+     270:	11 24       	eor	r1, r1
+     272:	1f be       	out	0x3f, r1	; 63
+     274:	cf ef       	ldi	r28, 0xFF	; 255
+     276:	d4 e0       	ldi	r29, 0x04	; 4
+     278:	de bf       	out	0x3e, r29	; 62
+     27a:	cd bf       	out	0x3d, r28	; 61
+
+0000027c <__do_clear_bss>:
+     27c:	11 e0       	ldi	r17, 0x01	; 1
+     27e:	a0 e0       	ldi	r26, 0x00	; 0
+     280:	b1 e0       	ldi	r27, 0x01	; 1
+     282:	01 c0       	rjmp	.+2      	; 0x286 <.do_clear_bss_start>
+
+00000284 <.do_clear_bss_loop>:
+     284:	1d 92       	st	X+, r1
+
+00000286 <.do_clear_bss_start>:
+     286:	aa 3b       	cpi	r26, 0xBA	; 186
+     288:	b1 07       	cpc	r27, r17
+     28a:	e1 f7       	brne	.-8      	; 0x284 <.do_clear_bss_loop>
+     28c:	0e 94 71 01 	call	0x2e2	; 0x2e2 <main>
+     290:	0c 94 03 08 	jmp	0x1006	; 0x1006 <_exit>
+
+00000294 <__bad_interrupt>:
+     294:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000298 <command>:
+#define UART_BAUD_RATE 57600
+#define F_CPU 16000000
+
+
+void command(uint8_t *buf)
+{
+     298:	df 93       	push	r29
+     29a:	cf 93       	push	r28
+     29c:	00 d0       	rcall	.+0      	; 0x29e <command+0x6>
+     29e:	0f 92       	push	r0
+     2a0:	cd b7       	in	r28, 0x3d	; 61
+     2a2:	de b7       	in	r29, 0x3e	; 62
+     2a4:	fc 01       	movw	r30, r24
+	*/
+		
+	uint8_t m_comand = buf[0];
+	struct rgb Color;
+		
+	switch (m_comand) {
+     2a6:	80 81       	ld	r24, Z
+     2a8:	81 30       	cpi	r24, 0x01	; 1
+     2aa:	41 f0       	breq	.+16     	; 0x2bc <command+0x24>
+     2ac:	81 30       	cpi	r24, 0x01	; 1
+     2ae:	18 f0       	brcs	.+6      	; 0x2b6 <command+0x1e>
+     2b0:	80 31       	cpi	r24, 0x10	; 16
+     2b2:	89 f4       	brne	.+34     	; 0x2d6 <command+0x3e>
+     2b4:	06 c0       	rjmp	.+12     	; 0x2c2 <command+0x2a>
+		case 0x00:
+			led_off();
+     2b6:	0e 94 37 05 	call	0xa6e	; 0xa6e <led_off>
+     2ba:	0d c0       	rjmp	.+26     	; 0x2d6 <command+0x3e>
+			break;
+				
+		case 0x01:
+			led_on();
+     2bc:	0e 94 32 05 	call	0xa64	; 0xa64 <led_on>
+     2c0:	0a c0       	rjmp	.+20     	; 0x2d6 <command+0x3e>
+			break;
+				
+		case 0x10:
+			
+			Color.Red = buf[1];
+     2c2:	81 81       	ldd	r24, Z+1	; 0x01
+     2c4:	89 83       	std	Y+1, r24	; 0x01
+			Color.Green = buf[2];
+     2c6:	82 81       	ldd	r24, Z+2	; 0x02
+     2c8:	8a 83       	std	Y+2, r24	; 0x02
+			Color.Blue = buf[3];
+     2ca:	83 81       	ldd	r24, Z+3	; 0x03
+     2cc:	8b 83       	std	Y+3, r24	; 0x03
+			set_led_color(&Color);
+     2ce:	ce 01       	movw	r24, r28
+     2d0:	01 96       	adiw	r24, 0x01	; 1
+     2d2:	0e 94 3d 05 	call	0xa7a	; 0xa7a <set_led_color>
+			break;
+				
+	}		
+}
+     2d6:	0f 90       	pop	r0
+     2d8:	0f 90       	pop	r0
+     2da:	0f 90       	pop	r0
+     2dc:	cf 91       	pop	r28
+     2de:	df 91       	pop	r29
+     2e0:	08 95       	ret
+
+000002e2 <main>:
+
+
+int main(void)
+{
+     2e2:	0f 93       	push	r16
+     2e4:	1f 93       	push	r17
+     2e6:	df 93       	push	r29
+     2e8:	cf 93       	push	r28
+     2ea:	cd b7       	in	r28, 0x3d	; 61
+     2ec:	de b7       	in	r29, 0x3e	; 62
+     2ee:	2d 97       	sbiw	r28, 0x0d	; 13
+     2f0:	0f b6       	in	r0, 0x3f	; 63
+     2f2:	f8 94       	cli
+     2f4:	de bf       	out	0x3e, r29	; 62
+     2f6:	0f be       	out	0x3f, r0	; 63
+     2f8:	cd bf       	out	0x3d, r28	; 61
+	//Initialisieren
+	uart1_init( UART_BAUD_SELECT(UART_BAUD_RATE,F_CPU) );  //Uart 1 initialisieren (Debug)
+     2fa:	80 e1       	ldi	r24, 0x10	; 16
+     2fc:	90 e0       	ldi	r25, 0x00	; 0
+     2fe:	0e 94 77 04 	call	0x8ee	; 0x8ee <uart1_init>
+	led_init();		//LED Initialisieren
+     302:	0e 94 22 05 	call	0xa44	; 0xa44 <led_init>
+
+	//Funkmodul initialisieren
+	rf12_init();					// ein paar Register setzen (z.B. CLK auf 10MHz)
+     306:	0e 94 d8 01 	call	0x3b0	; 0x3b0 <rf12_init>
+	rf12_setfreq(RF12FREQ(433.25));	// Sende/Empfangsfrequenz auf 433,92MHz einstellen
+     30a:	84 e1       	ldi	r24, 0x14	; 20
+     30c:	95 e0       	ldi	r25, 0x05	; 5
+     30e:	0e 94 30 02 	call	0x460	; 0x460 <rf12_setfreq>
+	rf12_setbandwidth(4, 1, 4);		// 200kHz Bandbreite, -6dB Verstärkung, DRSSI threshold: -79dBm 
+     312:	84 e0       	ldi	r24, 0x04	; 4
+     314:	61 e0       	ldi	r22, 0x01	; 1
+     316:	44 e0       	ldi	r20, 0x04	; 4
+     318:	0e 94 16 02 	call	0x42c	; 0x42c <rf12_setbandwidth>
+	rf12_setbaud(19200);			// 19200 baud
+     31c:	80 e0       	ldi	r24, 0x00	; 0
+     31e:	9b e4       	ldi	r25, 0x4B	; 75
+     320:	0e 94 40 02 	call	0x480	; 0x480 <rf12_setbaud>
+	rf12_setpower(0, 6);			// 1mW Ausgangangsleistung, 120kHz Frequenzshift
+     324:	80 e0       	ldi	r24, 0x00	; 0
+     326:	66 e0       	ldi	r22, 0x06	; 6
+     328:	0e 94 61 02 	call	0x4c2	; 0x4c2 <rf12_setpower>
+
+	sei();		//Interrupts aktivieren
+     32c:	78 94       	sei
+
+
+	struct rgb Color;
+	
+	Color.Red = 35;
+     32e:	83 e2       	ldi	r24, 0x23	; 35
+     330:	89 83       	std	Y+1, r24	; 0x01
+	Color.Green = 55;
+     332:	87 e3       	ldi	r24, 0x37	; 55
+     334:	8a 83       	std	Y+2, r24	; 0x02
+	Color.Blue = 45;	
+     336:	8d e2       	ldi	r24, 0x2D	; 45
+     338:	8b 83       	std	Y+3, r24	; 0x03
+	set_led_color(&Color);
+     33a:	ce 01       	movw	r24, r28
+     33c:	01 96       	adiw	r24, 0x01	; 1
+     33e:	0e 94 3d 05 	call	0xa7a	; 0xa7a <set_led_color>
+	
+	led_on();
+     342:	0e 94 32 05 	call	0xa64	; 0xa64 <led_on>
+     346:	84 ec       	ldi	r24, 0xC4	; 196
+     348:	99 e0       	ldi	r25, 0x09	; 9
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+     34a:	20 e9       	ldi	r18, 0x90	; 144
+     34c:	31 e0       	ldi	r19, 0x01	; 1
+     34e:	f9 01       	movw	r30, r18
+     350:	31 97       	sbiw	r30, 0x01	; 1
+     352:	f1 f7       	brne	.-4      	; 0x350 <main+0x6e>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+     354:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+     356:	d9 f7       	brne	.-10     	; 0x34e <main+0x6c>
+	while(23)
+	{
+		//Wenn Puffer lesebereit ist
+		if (rf12_getStatus() == rf12_data_status_ready)
+		{
+			rf12_getData(buf_temp); 
+     358:	8e 01       	movw	r16, r28
+     35a:	0c 5f       	subi	r16, 0xFC	; 252
+     35c:	1f 4f       	sbci	r17, 0xFF	; 255
+	
+	//Mainloop
+	while(23)
+	{
+		//Wenn Puffer lesebereit ist
+		if (rf12_getStatus() == rf12_data_status_ready)
+     35e:	0e 94 70 03 	call	0x6e0	; 0x6e0 <rf12_getStatus>
+     362:	82 30       	cpi	r24, 0x02	; 2
+     364:	e1 f7       	brne	.-8      	; 0x35e <main+0x7c>
+		{
+			rf12_getData(buf_temp); 
+     366:	c8 01       	movw	r24, r16
+     368:	0e 94 73 03 	call	0x6e6	; 0x6e6 <rf12_getData>
+			rf_data_reset();
+     36c:	0e 94 5b 03 	call	0x6b6	; 0x6b6 <rf_data_reset>
+			command(buf_temp);
+     370:	c8 01       	movw	r24, r16
+     372:	0e 94 4c 01 	call	0x298	; 0x298 <command>
+     376:	f3 cf       	rjmp	.-26     	; 0x35e <main+0x7c>
+
+00000378 <rf12_trans>:
+unsigned short rf12_trans(unsigned short wert)
+{	
+	unsigned short werti=0;
+	unsigned char i;
+
+	cbi(RF_PORT, CS);
+     378:	c0 98       	cbi	0x18, 0	; 24
+     37a:	50 e0       	ldi	r21, 0x00	; 0
+     37c:	20 e0       	ldi	r18, 0x00	; 0
+     37e:	30 e0       	ldi	r19, 0x00	; 0
+    can be achieved.
+*/
+void
+_delay_loop_1(uint8_t __count)
+{
+	__asm__ volatile (
+     380:	61 e0       	ldi	r22, 0x01	; 1
+	for (i=0; i<16; i++)
+	{	if (wert&32768)
+     382:	97 ff       	sbrs	r25, 7
+     384:	02 c0       	rjmp	.+4      	; 0x38a <rf12_trans+0x12>
+			sbi(RF_PORT, SDI);
+     386:	c5 9a       	sbi	0x18, 5	; 24
+     388:	01 c0       	rjmp	.+2      	; 0x38c <rf12_trans+0x14>
+		else
+			cbi(RF_PORT, SDI);
+     38a:	c5 98       	cbi	0x18, 5	; 24
+		werti<<=1;
+     38c:	22 0f       	add	r18, r18
+     38e:	33 1f       	adc	r19, r19
+		if (RF_PIN&(1<<SDO))
+     390:	b6 99       	sbic	0x16, 6	; 22
+			werti|=1;
+     392:	21 60       	ori	r18, 0x01	; 1
+		sbi(RF_PORT, SCK);
+     394:	c7 9a       	sbi	0x18, 7	; 24
+     396:	46 2f       	mov	r20, r22
+     398:	4a 95       	dec	r20
+     39a:	f1 f7       	brne	.-4      	; 0x398 <rf12_trans+0x20>
+		wert<<=1;
+		_delay_us(0.3);
+		cbi(RF_PORT, SCK);
+     39c:	c7 98       	cbi	0x18, 7	; 24
+{	
+	unsigned short werti=0;
+	unsigned char i;
+
+	cbi(RF_PORT, CS);
+	for (i=0; i<16; i++)
+     39e:	5f 5f       	subi	r21, 0xFF	; 255
+     3a0:	50 31       	cpi	r21, 0x10	; 16
+     3a2:	19 f0       	breq	.+6      	; 0x3aa <rf12_trans+0x32>
+			cbi(RF_PORT, SDI);
+		werti<<=1;
+		if (RF_PIN&(1<<SDO))
+			werti|=1;
+		sbi(RF_PORT, SCK);
+		wert<<=1;
+     3a4:	88 0f       	add	r24, r24
+     3a6:	99 1f       	adc	r25, r25
+     3a8:	ec cf       	rjmp	.-40     	; 0x382 <rf12_trans+0xa>
+		_delay_us(0.3);
+		cbi(RF_PORT, SCK);
+	}
+	sbi(RF_PORT, CS);
+     3aa:	c0 9a       	sbi	0x18, 0	; 24
+	return werti;
+}
+     3ac:	c9 01       	movw	r24, r18
+     3ae:	08 95       	ret
+
+000003b0 <rf12_init>:
+
+
+
+void rf12_init(void)
+{
+	RF_DDR=(1<<SDI)|(1<<SCK)|(1<<CS);
+     3b0:	81 ea       	ldi	r24, 0xA1	; 161
+     3b2:	87 bb       	out	0x17, r24	; 23
+	RF_PORT=(1<<CS);
+     3b4:	81 e0       	ldi	r24, 0x01	; 1
+     3b6:	88 bb       	out	0x18, r24	; 24
+     3b8:	88 ee       	ldi	r24, 0xE8	; 232
+     3ba:	93 e0       	ldi	r25, 0x03	; 3
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+     3bc:	20 e9       	ldi	r18, 0x90	; 144
+     3be:	31 e0       	ldi	r19, 0x01	; 1
+     3c0:	f9 01       	movw	r30, r18
+     3c2:	31 97       	sbiw	r30, 0x01	; 1
+     3c4:	f1 f7       	brne	.-4      	; 0x3c2 <rf12_init+0x12>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+     3c6:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+     3c8:	d9 f7       	brne	.-10     	; 0x3c0 <rf12_init+0x10>
+	
+     _delay_ms(100);			// wait until POR done
+
+	rf12_trans(0xC0E0);			// AVR CLK: 10MHz
+     3ca:	80 ee       	ldi	r24, 0xE0	; 224
+     3cc:	90 ec       	ldi	r25, 0xC0	; 192
+     3ce:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0x80D7);			// Enable FIFO
+     3d2:	87 ed       	ldi	r24, 0xD7	; 215
+     3d4:	90 e8       	ldi	r25, 0x80	; 128
+     3d6:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0xC2AB);			// Data Filter: internal
+     3da:	8b ea       	ldi	r24, 0xAB	; 171
+     3dc:	92 ec       	ldi	r25, 0xC2	; 194
+     3de:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0xCA81);			// Set FIFO mode
+     3e2:	81 e8       	ldi	r24, 0x81	; 129
+     3e4:	9a ec       	ldi	r25, 0xCA	; 202
+     3e6:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0xE000);			// disable wakeuptimer
+     3ea:	80 e0       	ldi	r24, 0x00	; 0
+     3ec:	90 ee       	ldi	r25, 0xE0	; 224
+     3ee:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0xC800);			// disable low duty cycle
+     3f2:	80 e0       	ldi	r24, 0x00	; 0
+     3f4:	98 ec       	ldi	r25, 0xC8	; 200
+     3f6:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0xC4F7);			// AFC settings: autotuning: -10kHz...+7,5kHz
+     3fa:	87 ef       	ldi	r24, 0xF7	; 247
+     3fc:	94 ec       	ldi	r25, 0xC4	; 196
+     3fe:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+
+	//Einschalten des Receivers	
+	rf12_trans(0x82C8);			// RX on
+     402:	88 ec       	ldi	r24, 0xC8	; 200
+     404:	92 e8       	ldi	r25, 0x82	; 130
+     406:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0xCA83);			// enable FIFO         
+     40a:	83 e8       	ldi	r24, 0x83	; 131
+     40c:	9a ec       	ldi	r25, 0xCA	; 202
+     40e:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0x0000);			//Status lesen
+     412:	80 e0       	ldi	r24, 0x00	; 0
+     414:	90 e0       	ldi	r25, 0x00	; 0
+     416:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	
+	strRX.Status = 0;
+     41a:	10 92 8c 01 	sts	0x018C, r1
+	
+	//Interrupt 
+	MCUCR |= (1 << ISC11);	//Trigger auf fallende Flanke
+     41e:	85 b7       	in	r24, 0x35	; 53
+     420:	88 60       	ori	r24, 0x08	; 8
+     422:	85 bf       	out	0x35, r24	; 53
+	GICR |= (1 << INT1);	//Int aktivieren
+     424:	8b b7       	in	r24, 0x3b	; 59
+     426:	80 68       	ori	r24, 0x80	; 128
+     428:	8b bf       	out	0x3b, r24	; 59
+	
+}
+     42a:	08 95       	ret
+
+0000042c <rf12_setbandwidth>:
+
+void rf12_setbandwidth(unsigned char bandwidth, unsigned char gain, unsigned char drssi)
+{
+	rf12_trans(0x9400|((bandwidth&7)<<5)|((gain&3)<<3)|(drssi&7));
+     42c:	90 e0       	ldi	r25, 0x00	; 0
+     42e:	f5 e0       	ldi	r31, 0x05	; 5
+     430:	88 0f       	add	r24, r24
+     432:	99 1f       	adc	r25, r25
+     434:	fa 95       	dec	r31
+     436:	e1 f7       	brne	.-8      	; 0x430 <rf12_setbandwidth+0x4>
+     438:	90 70       	andi	r25, 0x00	; 0
+     43a:	50 e0       	ldi	r21, 0x00	; 0
+     43c:	47 70       	andi	r20, 0x07	; 7
+     43e:	50 70       	andi	r21, 0x00	; 0
+     440:	84 2b       	or	r24, r20
+     442:	95 2b       	or	r25, r21
+     444:	94 69       	ori	r25, 0x94	; 148
+     446:	70 e0       	ldi	r23, 0x00	; 0
+     448:	63 70       	andi	r22, 0x03	; 3
+     44a:	70 70       	andi	r23, 0x00	; 0
+     44c:	e3 e0       	ldi	r30, 0x03	; 3
+     44e:	66 0f       	add	r22, r22
+     450:	77 1f       	adc	r23, r23
+     452:	ea 95       	dec	r30
+     454:	e1 f7       	brne	.-8      	; 0x44e <rf12_setbandwidth+0x22>
+     456:	86 2b       	or	r24, r22
+     458:	97 2b       	or	r25, r23
+     45a:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+}
+     45e:	08 95       	ret
+
+00000460 <rf12_setfreq>:
+
+void rf12_setfreq(unsigned short freq)
+{	if (freq<96)				// 430,2400MHz
+     460:	80 36       	cpi	r24, 0x60	; 96
+     462:	91 05       	cpc	r25, r1
+     464:	18 f4       	brcc	.+6      	; 0x46c <rf12_setfreq+0xc>
+     466:	80 e6       	ldi	r24, 0x60	; 96
+     468:	90 e0       	ldi	r25, 0x00	; 0
+     46a:	06 c0       	rjmp	.+12     	; 0x478 <rf12_setfreq+0x18>
+     46c:	2f e0       	ldi	r18, 0x0F	; 15
+     46e:	80 34       	cpi	r24, 0x40	; 64
+     470:	92 07       	cpc	r25, r18
+     472:	10 f0       	brcs	.+4      	; 0x478 <rf12_setfreq+0x18>
+     474:	8f e3       	ldi	r24, 0x3F	; 63
+     476:	9f e0       	ldi	r25, 0x0F	; 15
+		freq=96;
+	else if (freq>3903)			// 439,7575MHz
+		freq=3903;
+	rf12_trans(0xA000|freq);
+     478:	90 6a       	ori	r25, 0xA0	; 160
+     47a:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+}
+     47e:	08 95       	ret
+
+00000480 <rf12_setbaud>:
+
+void rf12_setbaud(unsigned short baud)
+{
+	if (baud<663)
+     480:	22 e0       	ldi	r18, 0x02	; 2
+     482:	87 39       	cpi	r24, 0x97	; 151
+     484:	92 07       	cpc	r25, r18
+     486:	e0 f0       	brcs	.+56     	; 0x4c0 <rf12_setbaud+0x40>
+		return;
+	if (baud<5400)					// Baudrate= 344827,58621/(R+1)/(1+CS*7)
+     488:	25 e1       	ldi	r18, 0x15	; 21
+     48a:	88 31       	cpi	r24, 0x18	; 24
+     48c:	92 07       	cpc	r25, r18
+     48e:	88 f4       	brcc	.+34     	; 0x4b2 <rf12_setbaud+0x32>
+		rf12_trans(0xC680|((43104/baud)-1));
+     490:	9c 01       	movw	r18, r24
+     492:	40 e0       	ldi	r20, 0x00	; 0
+     494:	50 e0       	ldi	r21, 0x00	; 0
+     496:	60 e6       	ldi	r22, 0x60	; 96
+     498:	78 ea       	ldi	r23, 0xA8	; 168
+     49a:	80 e0       	ldi	r24, 0x00	; 0
+     49c:	90 e0       	ldi	r25, 0x00	; 0
+     49e:	0e 94 ab 07 	call	0xf56	; 0xf56 <__divmodsi4>
+     4a2:	da 01       	movw	r26, r20
+     4a4:	c9 01       	movw	r24, r18
+     4a6:	01 97       	sbiw	r24, 0x01	; 1
+     4a8:	80 68       	ori	r24, 0x80	; 128
+     4aa:	96 6c       	ori	r25, 0xC6	; 198
+     4ac:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+     4b0:	08 95       	ret
+	
+	if (baud==19200)
+     4b2:	80 50       	subi	r24, 0x00	; 0
+     4b4:	9b 44       	sbci	r25, 0x4B	; 75
+     4b6:	21 f4       	brne	.+8      	; 0x4c0 <rf12_setbaud+0x40>
+     	rf12_trans(0xC611);
+     4b8:	81 e1       	ldi	r24, 0x11	; 17
+     4ba:	96 ec       	ldi	r25, 0xC6	; 198
+     4bc:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+     4c0:	08 95       	ret
+
+000004c2 <rf12_setpower>:
+	
+}
+
+void rf12_setpower(unsigned char power, unsigned char mod)
+{	
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+     4c2:	90 e0       	ldi	r25, 0x00	; 0
+     4c4:	87 70       	andi	r24, 0x07	; 7
+     4c6:	90 70       	andi	r25, 0x00	; 0
+     4c8:	98 69       	ori	r25, 0x98	; 152
+     4ca:	70 e0       	ldi	r23, 0x00	; 0
+     4cc:	a4 e0       	ldi	r26, 0x04	; 4
+     4ce:	66 0f       	add	r22, r22
+     4d0:	77 1f       	adc	r23, r23
+     4d2:	aa 95       	dec	r26
+     4d4:	e1 f7       	brne	.-8      	; 0x4ce <rf12_setpower+0xc>
+     4d6:	70 70       	andi	r23, 0x00	; 0
+     4d8:	86 2b       	or	r24, r22
+     4da:	97 2b       	or	r25, r23
+     4dc:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+}
+     4e0:	08 95       	ret
+
+000004e2 <rf12_ready>:
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     4e2:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     4e4:	b6 9b       	sbis	0x16, 6	; 22
+     4e6:	fe cf       	rjmp	.-4      	; 0x4e4 <rf12_ready+0x2>
+}
+     4e8:	08 95       	ret
+
+000004ea <rf12_txdata>:
+
+void rf12_txdata(unsigned char *data, unsigned char number)
+{	
+     4ea:	ff 92       	push	r15
+     4ec:	0f 93       	push	r16
+     4ee:	1f 93       	push	r17
+     4f0:	cf 93       	push	r28
+     4f2:	df 93       	push	r29
+     4f4:	8c 01       	movw	r16, r24
+     4f6:	f6 2e       	mov	r15, r22
+	unsigned char i;
+	rf12_trans(0x8238);			// TX on
+     4f8:	88 e3       	ldi	r24, 0x38	; 56
+     4fa:	92 e8       	ldi	r25, 0x82	; 130
+     4fc:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     500:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     502:	b6 9b       	sbis	0x16, 6	; 22
+     504:	fe cf       	rjmp	.-4      	; 0x502 <__stack+0x3>
+void rf12_txdata(unsigned char *data, unsigned char number)
+{	
+	unsigned char i;
+	rf12_trans(0x8238);			// TX on
+	rf12_ready();
+	rf12_trans(0xB8AA);
+     506:	8a ea       	ldi	r24, 0xAA	; 170
+     508:	98 eb       	ldi	r25, 0xB8	; 184
+     50a:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     50e:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     510:	b6 9b       	sbis	0x16, 6	; 22
+     512:	fe cf       	rjmp	.-4      	; 0x510 <__stack+0x11>
+	unsigned char i;
+	rf12_trans(0x8238);			// TX on
+	rf12_ready();
+	rf12_trans(0xB8AA);
+	rf12_ready();
+	rf12_trans(0xB8AA);
+     514:	8a ea       	ldi	r24, 0xAA	; 170
+     516:	98 eb       	ldi	r25, 0xB8	; 184
+     518:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     51c:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     51e:	b6 9b       	sbis	0x16, 6	; 22
+     520:	fe cf       	rjmp	.-4      	; 0x51e <__stack+0x1f>
+	rf12_ready();
+	rf12_trans(0xB8AA);
+	rf12_ready();
+	rf12_trans(0xB8AA);
+	rf12_ready();
+	rf12_trans(0xB8AA);
+     522:	8a ea       	ldi	r24, 0xAA	; 170
+     524:	98 eb       	ldi	r25, 0xB8	; 184
+     526:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     52a:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     52c:	b6 9b       	sbis	0x16, 6	; 22
+     52e:	fe cf       	rjmp	.-4      	; 0x52c <__stack+0x2d>
+	rf12_ready();
+	rf12_trans(0xB8AA);
+	rf12_ready();
+	rf12_trans(0xB8AA);
+	rf12_ready();
+	rf12_trans(0xB82D);
+     530:	8d e2       	ldi	r24, 0x2D	; 45
+     532:	98 eb       	ldi	r25, 0xB8	; 184
+     534:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     538:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     53a:	b6 9b       	sbis	0x16, 6	; 22
+     53c:	fe cf       	rjmp	.-4      	; 0x53a <__stack+0x3b>
+	rf12_ready();
+	rf12_trans(0xB8AA);
+	rf12_ready();
+	rf12_trans(0xB82D);
+	rf12_ready();
+	rf12_trans(0xB8D4);
+     53e:	84 ed       	ldi	r24, 0xD4	; 212
+     540:	98 eb       	ldi	r25, 0xB8	; 184
+     542:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+     546:	e8 01       	movw	r28, r16
+     548:	08 c0       	rjmp	.+16     	; 0x55a <__stack+0x5b>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     54a:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     54c:	b6 9b       	sbis	0x16, 6	; 22
+     54e:	fe cf       	rjmp	.-4      	; 0x54c <__stack+0x4d>
+	rf12_trans(0xB82D);
+	rf12_ready();
+	rf12_trans(0xB8D4);
+	for (i=0; i<number; i++)
+	{		rf12_ready();
+		rf12_trans(0xB800|(*data++));
+     550:	89 91       	ld	r24, Y+
+     552:	90 e0       	ldi	r25, 0x00	; 0
+     554:	98 6b       	ori	r25, 0xB8	; 184
+     556:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+	rf12_trans(0xB8AA);
+	rf12_ready();
+	rf12_trans(0xB82D);
+	rf12_ready();
+	rf12_trans(0xB8D4);
+	for (i=0; i<number; i++)
+     55a:	9e 01       	movw	r18, r28
+     55c:	20 1b       	sub	r18, r16
+     55e:	2f 15       	cp	r18, r15
+     560:	a0 f3       	brcs	.-24     	; 0x54a <__stack+0x4b>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     562:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     564:	b6 9b       	sbis	0x16, 6	; 22
+     566:	fe cf       	rjmp	.-4      	; 0x564 <__stack+0x65>
+	for (i=0; i<number; i++)
+	{		rf12_ready();
+		rf12_trans(0xB800|(*data++));
+	}
+	rf12_ready();
+	rf12_trans(0x8208);			// TX off
+     568:	88 e0       	ldi	r24, 0x08	; 8
+     56a:	92 e8       	ldi	r25, 0x82	; 130
+     56c:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+}
+     570:	df 91       	pop	r29
+     572:	cf 91       	pop	r28
+     574:	1f 91       	pop	r17
+     576:	0f 91       	pop	r16
+     578:	ff 90       	pop	r15
+     57a:	08 95       	ret
+
+0000057c <__vector_2>:
+
+/*
+Hier werden die Interrupts des Funkmoduls behandelt. 
+*/
+ISR(INT1_vect)
+{
+     57c:	1f 92       	push	r1
+     57e:	0f 92       	push	r0
+     580:	0f b6       	in	r0, 0x3f	; 63
+     582:	0f 92       	push	r0
+     584:	11 24       	eor	r1, r1
+     586:	2f 93       	push	r18
+     588:	3f 93       	push	r19
+     58a:	4f 93       	push	r20
+     58c:	5f 93       	push	r21
+     58e:	6f 93       	push	r22
+     590:	7f 93       	push	r23
+     592:	8f 93       	push	r24
+     594:	9f 93       	push	r25
+     596:	af 93       	push	r26
+     598:	bf 93       	push	r27
+     59a:	cf 93       	push	r28
+     59c:	df 93       	push	r29
+     59e:	ef 93       	push	r30
+     5a0:	ff 93       	push	r31
+	Uns interessiert also das Highbyte genauer das höchstwertige Bit des Highbyte.
+	*/
+		
+	
+	// Wenn das "Daten im FiFo"-Flag gesetzt ist, wird empfangen.
+	uint8_t temp = (rf12_trans(0x0000)>>8);
+     5a2:	80 e0       	ldi	r24, 0x00	; 0
+     5a4:	90 e0       	ldi	r25, 0x00	; 0
+     5a6:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+  	if (temp & (1 << 7)) //FFIT Interrupt wurde ausgeloest.
+     5aa:	97 ff       	sbrs	r25, 7
+     5ac:	71 c0       	rjmp	.+226    	; 0x690 <__vector_2+0x114>
+    	nx Daten ...
+    	1x Datacheck
+		*/
+		
+		//Datenempfang läuft
+  		if(strRX.Status == rf12_data_status_progress)
+     5ae:	80 91 8c 01 	lds	r24, 0x018C
+     5b2:	83 30       	cpi	r24, 0x03	; 3
+     5b4:	09 f0       	breq	.+2      	; 0x5b8 <__vector_2+0x3c>
+     5b6:	56 c0       	rjmp	.+172    	; 0x664 <__vector_2+0xe8>
+  		{
+  			//Übertragung abgeschlossen, wenn die Länge - das Längenbit
+  			//sebst erreicht ist.
+  			if (strRX.Count == (strRX.Length + 1))
+     5b8:	20 91 8e 01 	lds	r18, 0x018E
+     5bc:	80 91 8d 01 	lds	r24, 0x018D
+     5c0:	30 e0       	ldi	r19, 0x00	; 0
+     5c2:	90 e0       	ldi	r25, 0x00	; 0
+     5c4:	01 96       	adiw	r24, 0x01	; 1
+     5c6:	28 17       	cp	r18, r24
+     5c8:	39 07       	cpc	r19, r25
+     5ca:	91 f4       	brne	.+36     	; 0x5f0 <__vector_2+0x74>
+  			{
+  				strRX.Status = rf12_data_status_ready;
+     5cc:	82 e0       	ldi	r24, 0x02	; 2
+     5ce:	80 93 8c 01 	sts	0x018C, r24
+				strRX.Data[strRX.Count - 3] = '\0'; //Ende
+     5d2:	e0 91 8e 01 	lds	r30, 0x018E
+     5d6:	f0 e0       	ldi	r31, 0x00	; 0
+     5d8:	e7 57       	subi	r30, 0x77	; 119
+     5da:	fe 4f       	sbci	r31, 0xFE	; 254
+     5dc:	14 82       	std	Z+4, r1	; 0x04
+				/*
+				Checksumme über die Daten prüfen
+				*/
+				
+				//FIFO Reset
+				rf12_trans(0xCA81);
+     5de:	81 e8       	ldi	r24, 0x81	; 129
+     5e0:	9a ec       	ldi	r25, 0xCA	; 202
+     5e2:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+				rf12_trans(0xCA83);
+     5e6:	83 e8       	ldi	r24, 0x83	; 131
+     5e8:	9a ec       	ldi	r25, 0xCA	; 202
+     5ea:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+     5ee:	4f c0       	rjmp	.+158    	; 0x68e <__vector_2+0x112>
+				
+				goto END;
+  			}
+
+  			if (strRX.Count > 2)
+     5f0:	80 91 8e 01 	lds	r24, 0x018E
+     5f4:	83 30       	cpi	r24, 0x03	; 3
+     5f6:	a0 f0       	brcs	.+40     	; 0x620 <__vector_2+0xa4>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     5f8:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     5fa:	b6 9b       	sbis	0x16, 6	; 22
+     5fc:	fe cf       	rjmp	.-4      	; 0x5fa <__vector_2+0x7e>
+  			}
+
+  			if (strRX.Count > 2)
+  			{
+  				rf12_ready();
+  				strRX.Data[strRX.Count - 3] = rf12_trans(0xB000);
+     5fe:	80 91 8e 01 	lds	r24, 0x018E
+     602:	c8 2f       	mov	r28, r24
+     604:	d0 e0       	ldi	r29, 0x00	; 0
+     606:	23 97       	sbiw	r28, 0x03	; 3
+     608:	80 e0       	ldi	r24, 0x00	; 0
+     60a:	90 eb       	ldi	r25, 0xB0	; 176
+     60c:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+     610:	c4 57       	subi	r28, 0x74	; 116
+     612:	de 4f       	sbci	r29, 0xFE	; 254
+     614:	8c 83       	std	Y+4, r24	; 0x04
+  				strRX.Count++;
+     616:	80 91 8e 01 	lds	r24, 0x018E
+     61a:	8f 5f       	subi	r24, 0xFF	; 255
+     61c:	80 93 8e 01 	sts	0x018E, r24
+  				//uart1_putc(strRX.Data[strRX.Count - 4]);
+  			}
+
+  			//Header Check
+  			if (strRX.Count == 2)
+     620:	80 91 8e 01 	lds	r24, 0x018E
+     624:	82 30       	cpi	r24, 0x02	; 2
+     626:	61 f4       	brne	.+24     	; 0x640 <__vector_2+0xc4>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     628:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     62a:	b6 9b       	sbis	0x16, 6	; 22
+     62c:	fe cf       	rjmp	.-4      	; 0x62a <__vector_2+0xae>
+
+  			//Header Check
+  			if (strRX.Count == 2)
+  			{
+  				rf12_ready();
+  				uint8_t Checksumme = rf12_trans(0xB000);
+     62e:	80 e0       	ldi	r24, 0x00	; 0
+     630:	90 eb       	ldi	r25, 0xB0	; 176
+     632:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+				/*
+				Check IO?
+				*/
+				strRX.Count++;
+     636:	80 91 8e 01 	lds	r24, 0x018E
+     63a:	8f 5f       	subi	r24, 0xFF	; 255
+     63c:	80 93 8e 01 	sts	0x018E, r24
+  			}
+			
+			//Adressbyte lesen
+  			if (strRX.Count == 1)
+     640:	80 91 8e 01 	lds	r24, 0x018E
+     644:	81 30       	cpi	r24, 0x01	; 1
+     646:	71 f4       	brne	.+28     	; 0x664 <__vector_2+0xe8>
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     648:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     64a:	b6 9b       	sbis	0x16, 6	; 22
+     64c:	fe cf       	rjmp	.-4      	; 0x64a <__vector_2+0xce>
+			
+			//Adressbyte lesen
+  			if (strRX.Count == 1)
+  			{
+  				rf12_ready();
+				strRX.Adress = rf12_trans(0xB000);
+     64e:	80 e0       	ldi	r24, 0x00	; 0
+     650:	90 eb       	ldi	r25, 0xB0	; 176
+     652:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+     656:	80 93 8f 01 	sts	0x018F, r24
+				//uart1_putc(strRX.Adress);
+				strRX.Count++;
+     65a:	80 91 8e 01 	lds	r24, 0x018E
+     65e:	8f 5f       	subi	r24, 0xFF	; 255
+     660:	80 93 8e 01 	sts	0x018E, r24
+  			}
+  		}
+  		
+  		//Empfang beginnt
+  		if (strRX.Status == rf12_data_status_empty)
+     664:	80 91 8c 01 	lds	r24, 0x018C
+     668:	88 23       	and	r24, r24
+     66a:	89 f4       	brne	.+34     	; 0x68e <__vector_2+0x112>
+  		{
+  			strRX.Status = rf12_data_status_progress;
+     66c:	83 e0       	ldi	r24, 0x03	; 3
+     66e:	80 93 8c 01 	sts	0x018C, r24
+	rf12_trans(0x9800|(power&7)|((mod&15)<<4));
+}
+
+void rf12_ready(void)
+{	
+	cbi(RF_PORT, CS);
+     672:	c0 98       	cbi	0x18, 0	; 24
+	while (!(RF_PIN&(1<<SDO))); // wait until FIFO ready
+     674:	b6 9b       	sbis	0x16, 6	; 22
+     676:	fe cf       	rjmp	.-4      	; 0x674 <__vector_2+0xf8>
+			//Warum funktioniert das?
+			//Der Data variable vom typ Char wird der Short zugewiesen, welcher
+			//vom Modul empfangen wurde. Da nur die letzten 8 bit die Daten enthalten, wird der 
+			//Rest einfach abgeschnitten. Das ist kein Problem.
+			//Sicher gige das auch etwas elegenter.
+			strRX.Length = rf12_trans(0xB000); 	//Empfang des Längenbytes
+     678:	80 e0       	ldi	r24, 0x00	; 0
+     67a:	90 eb       	ldi	r25, 0xB0	; 176
+     67c:	0e 94 bc 01 	call	0x378	; 0x378 <rf12_trans>
+     680:	80 93 8d 01 	sts	0x018D, r24
+  			//uart1_putc(strRX.Length);
+  			strRX.Count++;
+     684:	80 91 8e 01 	lds	r24, 0x018E
+     688:	8f 5f       	subi	r24, 0xFF	; 255
+     68a:	80 93 8e 01 	sts	0x018E, r24
+  		}
+  		
+		END:
+		asm volatile ("nop");
+     68e:	00 00       	nop
+	}
+}
+     690:	ff 91       	pop	r31
+     692:	ef 91       	pop	r30
+     694:	df 91       	pop	r29
+     696:	cf 91       	pop	r28
+     698:	bf 91       	pop	r27
+     69a:	af 91       	pop	r26
+     69c:	9f 91       	pop	r25
+     69e:	8f 91       	pop	r24
+     6a0:	7f 91       	pop	r23
+     6a2:	6f 91       	pop	r22
+     6a4:	5f 91       	pop	r21
+     6a6:	4f 91       	pop	r20
+     6a8:	3f 91       	pop	r19
+     6aa:	2f 91       	pop	r18
+     6ac:	0f 90       	pop	r0
+     6ae:	0f be       	out	0x3f, r0	; 63
+     6b0:	0f 90       	pop	r0
+     6b2:	1f 90       	pop	r1
+     6b4:	18 95       	reti
+
+000006b6 <rf_data_reset>:
+void rf_data_reset()
+{
+	cli();	//Diese Methode muss atomar behandelt werden. 
+     6b6:	f8 94       	cli
+
+	strRX.Count = 0;
+     6b8:	10 92 8e 01 	sts	0x018E, r1
+	strRX.Length = 0;
+     6bc:	10 92 8d 01 	sts	0x018D, r1
+	strRX.Adress = 0;
+     6c0:	10 92 8f 01 	sts	0x018F, r1
+     6c4:	80 e0       	ldi	r24, 0x00	; 0
+     6c6:	90 e0       	ldi	r25, 0x00	; 0
+	
+	//Örks ... wenn das mal nicht ekelhaft ist.
+	//Da muss es doch eine bessere Möglichkeit geben ...
+	uint8_t i;
+	for (i=0; i<20; i++) strRX.Data[i] = 0;
+     6c8:	fc 01       	movw	r30, r24
+     6ca:	e4 57       	subi	r30, 0x74	; 116
+     6cc:	fe 4f       	sbci	r31, 0xFE	; 254
+     6ce:	14 82       	std	Z+4, r1	; 0x04
+     6d0:	01 96       	adiw	r24, 0x01	; 1
+     6d2:	84 31       	cpi	r24, 0x14	; 20
+     6d4:	91 05       	cpc	r25, r1
+     6d6:	c1 f7       	brne	.-16     	; 0x6c8 <rf_data_reset+0x12>
+	
+	strRX.Status = rf12_data_status_empty;
+     6d8:	10 92 8c 01 	sts	0x018C, r1
+	
+	sei();	//Interrupts wieder an
+     6dc:	78 94       	sei
+	
+}
+     6de:	08 95       	ret
+
+000006e0 <rf12_getStatus>:
+	memmove(text, strRX.Data, 10);
+}
+
+uint8_t rf12_getStatus()
+{
+	return strRX.Status;
+     6e0:	80 91 8c 01 	lds	r24, 0x018C
+}
+     6e4:	08 95       	ret
+
+000006e6 <rf12_getData>:
+	
+}
+
+void rf12_getData(uint8_t *text)
+{
+	memmove(text, strRX.Data, 10);
+     6e6:	60 e9       	ldi	r22, 0x90	; 144
+     6e8:	71 e0       	ldi	r23, 0x01	; 1
+     6ea:	4a e0       	ldi	r20, 0x0A	; 10
+     6ec:	50 e0       	ldi	r21, 0x00	; 0
+     6ee:	0e 94 e8 07 	call	0xfd0	; 0xfd0 <memmove>
+}
+     6f2:	08 95       	ret
+
+000006f4 <__vector_19>:
+SIGNAL(UART0_RECEIVE_INTERRUPT)
+/*************************************************************************
+Function: UART Receive Complete interrupt
+Purpose:  called when the UART has received a character
+**************************************************************************/
+{
+     6f4:	1f 92       	push	r1
+     6f6:	0f 92       	push	r0
+     6f8:	0f b6       	in	r0, 0x3f	; 63
+     6fa:	0f 92       	push	r0
+     6fc:	11 24       	eor	r1, r1
+     6fe:	2f 93       	push	r18
+     700:	8f 93       	push	r24
+     702:	9f 93       	push	r25
+     704:	ef 93       	push	r30
+     706:	ff 93       	push	r31
+    unsigned char usr;
+    unsigned char lastRxError;
+ 
+ 
+    /* read UART status register and UART data register */ 
+    usr  = UART0_STATUS;
+     708:	9b b1       	in	r25, 0x0b	; 11
+    data = UART0_DATA;
+     70a:	2c b1       	in	r18, 0x0c	; 12
+#elif defined ( ATMEGA_UART )
+    lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
+#endif
+        
+    /* calculate buffer index */ 
+    tmphead = ( UART_RxHead + 1) & UART_RX_BUFFER_MASK;
+     70c:	e0 91 42 01 	lds	r30, 0x0142
+     710:	ef 5f       	subi	r30, 0xFF	; 255
+     712:	ef 71       	andi	r30, 0x1F	; 31
+    
+    if ( tmphead == UART_RxTail ) {
+     714:	80 91 43 01 	lds	r24, 0x0143
+     718:	e8 17       	cp	r30, r24
+     71a:	11 f4       	brne	.+4      	; 0x720 <__vector_19+0x2c>
+     71c:	82 e0       	ldi	r24, 0x02	; 2
+     71e:	08 c0       	rjmp	.+16     	; 0x730 <__vector_19+0x3c>
+#if defined( AT90_UART )
+    lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
+#elif defined( ATMEGA_USART )
+    lastRxError = (usr & (_BV(FE)|_BV(DOR)) );
+#elif defined( ATMEGA_USART0 )
+    lastRxError = (usr & (_BV(FE0)|_BV(DOR0)) );
+     720:	89 2f       	mov	r24, r25
+     722:	88 71       	andi	r24, 0x18	; 24
+    if ( tmphead == UART_RxTail ) {
+        /* error: receive buffer overflow */
+        lastRxError = UART_BUFFER_OVERFLOW >> 8;
+    }else{
+        /* store new index */
+        UART_RxHead = tmphead;
+     724:	e0 93 42 01 	sts	0x0142, r30
+        /* store received data in buffer */
+        UART_RxBuf[tmphead] = data;
+     728:	f0 e0       	ldi	r31, 0x00	; 0
+     72a:	e0 5e       	subi	r30, 0xE0	; 224
+     72c:	fe 4f       	sbci	r31, 0xFE	; 254
+     72e:	20 83       	st	Z, r18
+    }
+    UART_LastRxError = lastRxError;   
+     730:	80 93 44 01 	sts	0x0144, r24
+}
+     734:	ff 91       	pop	r31
+     736:	ef 91       	pop	r30
+     738:	9f 91       	pop	r25
+     73a:	8f 91       	pop	r24
+     73c:	2f 91       	pop	r18
+     73e:	0f 90       	pop	r0
+     740:	0f be       	out	0x3f, r0	; 63
+     742:	0f 90       	pop	r0
+     744:	1f 90       	pop	r1
+     746:	18 95       	reti
+
+00000748 <__vector_21>:
+SIGNAL(UART0_TRANSMIT_INTERRUPT)
+/*************************************************************************
+Function: UART Data Register Empty interrupt
+Purpose:  called when the UART is ready to transmit the next byte
+**************************************************************************/
+{
+     748:	1f 92       	push	r1
+     74a:	0f 92       	push	r0
+     74c:	0f b6       	in	r0, 0x3f	; 63
+     74e:	0f 92       	push	r0
+     750:	11 24       	eor	r1, r1
+     752:	8f 93       	push	r24
+     754:	9f 93       	push	r25
+     756:	ef 93       	push	r30
+     758:	ff 93       	push	r31
+    unsigned char tmptail;
+
+    
+    if ( UART_TxHead != UART_TxTail) {
+     75a:	90 91 40 01 	lds	r25, 0x0140
+     75e:	80 91 41 01 	lds	r24, 0x0141
+     762:	98 17       	cp	r25, r24
+     764:	61 f0       	breq	.+24     	; 0x77e <__vector_21+0x36>
+        /* calculate and store new buffer index */
+        tmptail = (UART_TxTail + 1) & UART_TX_BUFFER_MASK;
+     766:	e0 91 41 01 	lds	r30, 0x0141
+     76a:	ef 5f       	subi	r30, 0xFF	; 255
+     76c:	ef 71       	andi	r30, 0x1F	; 31
+        UART_TxTail = tmptail;
+     76e:	e0 93 41 01 	sts	0x0141, r30
+        /* get one byte from buffer and write it to UART */
+        UART0_DATA = UART_TxBuf[tmptail];  /* start transmission */
+     772:	f0 e0       	ldi	r31, 0x00	; 0
+     774:	e0 50       	subi	r30, 0x00	; 0
+     776:	ff 4f       	sbci	r31, 0xFF	; 255
+     778:	80 81       	ld	r24, Z
+     77a:	8c b9       	out	0x0c, r24	; 12
+     77c:	01 c0       	rjmp	.+2      	; 0x780 <__vector_21+0x38>
+    }else{
+        /* tx buffer empty, disable UDRE interrupt */
+        UART0_CONTROL &= ~_BV(UART0_UDRIE);
+     77e:	55 98       	cbi	0x0a, 5	; 10
+    }
+}
+     780:	ff 91       	pop	r31
+     782:	ef 91       	pop	r30
+     784:	9f 91       	pop	r25
+     786:	8f 91       	pop	r24
+     788:	0f 90       	pop	r0
+     78a:	0f be       	out	0x3f, r0	; 63
+     78c:	0f 90       	pop	r0
+     78e:	1f 90       	pop	r1
+     790:	18 95       	reti
+
+00000792 <uart_init>:
+Purpose:  initialize UART and set baudrate
+Input:    baudrate using macro UART_BAUD_SELECT()
+Returns:  none
+**************************************************************************/
+void uart_init(unsigned int baudrate)
+{
+     792:	9c 01       	movw	r18, r24
+    UART_TxHead = 0;
+     794:	10 92 40 01 	sts	0x0140, r1
+    UART_TxTail = 0;
+     798:	10 92 41 01 	sts	0x0141, r1
+    UART_RxHead = 0;
+     79c:	10 92 42 01 	sts	0x0142, r1
+    UART_RxTail = 0;
+     7a0:	10 92 43 01 	sts	0x0143, r1
+    UCSRC = (3<<UCSZ0);
+    #endif 
+    
+#elif defined (ATMEGA_USART0 )
+    /* Set baud rate */
+    if ( baudrate & 0x8000 ) 
+     7a4:	97 ff       	sbrs	r25, 7
+     7a6:	03 c0       	rjmp	.+6      	; 0x7ae <uart_init+0x1c>
+    {
+   		UART0_STATUS = (1<<U2X0);  //Enable 2x speed 
+     7a8:	82 e0       	ldi	r24, 0x02	; 2
+     7aa:	8b b9       	out	0x0b, r24	; 11
+   		baudrate &= ~0x8000;
+     7ac:	3f 77       	andi	r19, 0x7F	; 127
+   	}
+    UBRR0H = (unsigned char)(baudrate>>8);
+     7ae:	30 bd       	out	0x20, r19	; 32
+    UBRR0L = (unsigned char) baudrate;
+     7b0:	29 b9       	out	0x09, r18	; 9
+
+    /* Enable USART receiver and transmitter and receive complete interrupt */
+    UART0_CONTROL = _BV(RXCIE0)|(1<<RXEN0)|(1<<TXEN0);
+     7b2:	88 e9       	ldi	r24, 0x98	; 152
+     7b4:	8a b9       	out	0x0a, r24	; 10
+    
+    /* Set frame format: asynchronous, 8data, no parity, 1stop bit */
+    #ifdef URSEL0
+    UCSR0C = (1<<URSEL0)|(3<<UCSZ00);
+     7b6:	86 e8       	ldi	r24, 0x86	; 134
+     7b8:	80 bd       	out	0x20, r24	; 32
+    /* Enable UART receiver and transmitter and receive complete interrupt */
+    UART0_CONTROL = _BV(RXCIE)|(1<<RXEN)|(1<<TXEN);
+
+#endif
+
+}/* uart_init */
+     7ba:	08 95       	ret
+
+000007bc <uart_getc>:
+{    
+    unsigned char tmptail;
+    unsigned char data;
+
+
+    if ( UART_RxHead == UART_RxTail ) {
+     7bc:	90 91 42 01 	lds	r25, 0x0142
+     7c0:	80 91 43 01 	lds	r24, 0x0143
+     7c4:	98 17       	cp	r25, r24
+     7c6:	19 f4       	brne	.+6      	; 0x7ce <uart_getc+0x12>
+     7c8:	20 e0       	ldi	r18, 0x00	; 0
+     7ca:	31 e0       	ldi	r19, 0x01	; 1
+     7cc:	12 c0       	rjmp	.+36     	; 0x7f2 <uart_getc+0x36>
+        return UART_NO_DATA;   /* no data available */
+    }
+    
+    /* calculate /store buffer index */
+    tmptail = (UART_RxTail + 1) & UART_RX_BUFFER_MASK;
+     7ce:	e0 91 43 01 	lds	r30, 0x0143
+     7d2:	ef 5f       	subi	r30, 0xFF	; 255
+     7d4:	ef 71       	andi	r30, 0x1F	; 31
+    UART_RxTail = tmptail; 
+     7d6:	e0 93 43 01 	sts	0x0143, r30
+    
+    /* get data from receive buffer */
+    data = UART_RxBuf[tmptail];
+     7da:	f0 e0       	ldi	r31, 0x00	; 0
+     7dc:	e0 5e       	subi	r30, 0xE0	; 224
+     7de:	fe 4f       	sbci	r31, 0xFE	; 254
+     7e0:	30 81       	ld	r19, Z
+    
+    return (UART_LastRxError << 8) + data;
+     7e2:	20 91 44 01 	lds	r18, 0x0144
+     7e6:	92 2f       	mov	r25, r18
+     7e8:	80 e0       	ldi	r24, 0x00	; 0
+     7ea:	ac 01       	movw	r20, r24
+     7ec:	43 0f       	add	r20, r19
+     7ee:	51 1d       	adc	r21, r1
+     7f0:	9a 01       	movw	r18, r20
+
+}/* uart_getc */
+     7f2:	c9 01       	movw	r24, r18
+     7f4:	08 95       	ret
+
+000007f6 <uart_putc>:
+Purpose:  write byte to ringbuffer for transmitting via UART
+Input:    byte to be transmitted
+Returns:  none          
+**************************************************************************/
+void uart_putc(unsigned char data)
+{
+     7f6:	28 2f       	mov	r18, r24
+    unsigned char tmphead;
+
+    
+    tmphead  = (UART_TxHead + 1) & UART_TX_BUFFER_MASK;
+     7f8:	90 91 40 01 	lds	r25, 0x0140
+     7fc:	9f 5f       	subi	r25, 0xFF	; 255
+     7fe:	9f 71       	andi	r25, 0x1F	; 31
+    
+    while ( tmphead == UART_TxTail ){
+     800:	80 91 41 01 	lds	r24, 0x0141
+     804:	98 17       	cp	r25, r24
+     806:	e1 f3       	breq	.-8      	; 0x800 <uart_putc+0xa>
+        ;/* wait for free space in buffer */
+    }
+    
+    UART_TxBuf[tmphead] = data;
+     808:	e9 2f       	mov	r30, r25
+     80a:	f0 e0       	ldi	r31, 0x00	; 0
+     80c:	e0 50       	subi	r30, 0x00	; 0
+     80e:	ff 4f       	sbci	r31, 0xFF	; 255
+     810:	20 83       	st	Z, r18
+    UART_TxHead = tmphead;
+     812:	90 93 40 01 	sts	0x0140, r25
+
+    /* enable UDRE interrupt */
+    UART0_CONTROL    |= _BV(UART0_UDRIE);
+     816:	55 9a       	sbi	0x0a, 5	; 10
+
+}/* uart_putc */
+     818:	08 95       	ret
+
+0000081a <uart_puts>:
+Purpose:  transmit string to UART
+Input:    string to be transmitted
+Returns:  none          
+**************************************************************************/
+void uart_puts(const char *s )
+{
+     81a:	cf 93       	push	r28
+     81c:	df 93       	push	r29
+     81e:	ec 01       	movw	r28, r24
+     820:	03 c0       	rjmp	.+6      	; 0x828 <uart_puts+0xe>
+    while (*s) 
+      uart_putc(*s++);
+     822:	21 96       	adiw	r28, 0x01	; 1
+     824:	0e 94 fb 03 	call	0x7f6	; 0x7f6 <uart_putc>
+Input:    string to be transmitted
+Returns:  none          
+**************************************************************************/
+void uart_puts(const char *s )
+{
+    while (*s) 
+     828:	88 81       	ld	r24, Y
+     82a:	88 23       	and	r24, r24
+     82c:	d1 f7       	brne	.-12     	; 0x822 <uart_puts+0x8>
+      uart_putc(*s++);
+
+}/* uart_puts */
+     82e:	df 91       	pop	r29
+     830:	cf 91       	pop	r28
+     832:	08 95       	ret
+
+00000834 <uart_puts_p>:
+Purpose:  transmit string from program memory to UART
+Input:    program memory string to be transmitted
+Returns:  none
+**************************************************************************/
+void uart_puts_p(const char *progmem_s )
+{
+     834:	cf 93       	push	r28
+     836:	df 93       	push	r29
+     838:	ec 01       	movw	r28, r24
+     83a:	02 c0       	rjmp	.+4      	; 0x840 <uart_puts_p+0xc>
+    register char c;
+    
+    while ( (c = pgm_read_byte(progmem_s++)) ) 
+      uart_putc(c);
+     83c:	0e 94 fb 03 	call	0x7f6	; 0x7f6 <uart_putc>
+     840:	fe 01       	movw	r30, r28
+**************************************************************************/
+void uart_puts_p(const char *progmem_s )
+{
+    register char c;
+    
+    while ( (c = pgm_read_byte(progmem_s++)) ) 
+     842:	21 96       	adiw	r28, 0x01	; 1
+     844:	84 91       	lpm	r24, Z+
+     846:	88 23       	and	r24, r24
+     848:	c9 f7       	brne	.-14     	; 0x83c <uart_puts_p+0x8>
+      uart_putc(c);
+
+}/* uart_puts_p */
+     84a:	df 91       	pop	r29
+     84c:	cf 91       	pop	r28
+     84e:	08 95       	ret
+
+00000850 <__vector_20>:
+SIGNAL(UART1_RECEIVE_INTERRUPT)
+/*************************************************************************
+Function: UART1 Receive Complete interrupt
+Purpose:  called when the UART1 has received a character
+**************************************************************************/
+{
+     850:	1f 92       	push	r1
+     852:	0f 92       	push	r0
+     854:	0f b6       	in	r0, 0x3f	; 63
+     856:	0f 92       	push	r0
+     858:	11 24       	eor	r1, r1
+     85a:	2f 93       	push	r18
+     85c:	8f 93       	push	r24
+     85e:	9f 93       	push	r25
+     860:	ef 93       	push	r30
+     862:	ff 93       	push	r31
+    unsigned char usr;
+    unsigned char lastRxError;
+ 
+ 
+    /* read UART status register and UART data register */ 
+    usr  = UART1_STATUS;
+     864:	92 b1       	in	r25, 0x02	; 2
+    data = UART1_DATA;
+     866:	23 b1       	in	r18, 0x03	; 3
+    
+    /* */
+    lastRxError = (usr & (_BV(FE1)|_BV(DOR1)) );
+        
+    /* calculate buffer index */ 
+    tmphead = ( UART1_RxHead + 1) & UART_RX_BUFFER_MASK;
+     868:	e0 91 87 01 	lds	r30, 0x0187
+     86c:	ef 5f       	subi	r30, 0xFF	; 255
+     86e:	ef 71       	andi	r30, 0x1F	; 31
+    
+    if ( tmphead == UART1_RxTail ) {
+     870:	80 91 88 01 	lds	r24, 0x0188
+     874:	e8 17       	cp	r30, r24
+     876:	11 f4       	brne	.+4      	; 0x87c <__vector_20+0x2c>
+     878:	82 e0       	ldi	r24, 0x02	; 2
+     87a:	08 c0       	rjmp	.+16     	; 0x88c <__vector_20+0x3c>
+    /* read UART status register and UART data register */ 
+    usr  = UART1_STATUS;
+    data = UART1_DATA;
+    
+    /* */
+    lastRxError = (usr & (_BV(FE1)|_BV(DOR1)) );
+     87c:	89 2f       	mov	r24, r25
+     87e:	88 71       	andi	r24, 0x18	; 24
+    if ( tmphead == UART1_RxTail ) {
+        /* error: receive buffer overflow */
+        lastRxError = UART_BUFFER_OVERFLOW >> 8;
+    }else{
+        /* store new index */
+        UART1_RxHead = tmphead;
+     880:	e0 93 87 01 	sts	0x0187, r30
+        /* store received data in buffer */
+        UART1_RxBuf[tmphead] = data;
+     884:	f0 e0       	ldi	r31, 0x00	; 0
+     886:	eb 59       	subi	r30, 0x9B	; 155
+     888:	fe 4f       	sbci	r31, 0xFE	; 254
+     88a:	20 83       	st	Z, r18
+    }
+    UART1_LastRxError = lastRxError;   
+     88c:	80 93 89 01 	sts	0x0189, r24
+}
+     890:	ff 91       	pop	r31
+     892:	ef 91       	pop	r30
+     894:	9f 91       	pop	r25
+     896:	8f 91       	pop	r24
+     898:	2f 91       	pop	r18
+     89a:	0f 90       	pop	r0
+     89c:	0f be       	out	0x3f, r0	; 63
+     89e:	0f 90       	pop	r0
+     8a0:	1f 90       	pop	r1
+     8a2:	18 95       	reti
+
+000008a4 <__vector_22>:
+SIGNAL(UART1_TRANSMIT_INTERRUPT)
+/*************************************************************************
+Function: UART1 Data Register Empty interrupt
+Purpose:  called when the UART1 is ready to transmit the next byte
+**************************************************************************/
+{
+     8a4:	1f 92       	push	r1
+     8a6:	0f 92       	push	r0
+     8a8:	0f b6       	in	r0, 0x3f	; 63
+     8aa:	0f 92       	push	r0
+     8ac:	11 24       	eor	r1, r1
+     8ae:	8f 93       	push	r24
+     8b0:	9f 93       	push	r25
+     8b2:	ef 93       	push	r30
+     8b4:	ff 93       	push	r31
+    unsigned char tmptail;
+
+    
+    if ( UART1_TxHead != UART1_TxTail) {
+     8b6:	90 91 85 01 	lds	r25, 0x0185
+     8ba:	80 91 86 01 	lds	r24, 0x0186
+     8be:	98 17       	cp	r25, r24
+     8c0:	61 f0       	breq	.+24     	; 0x8da <__vector_22+0x36>
+        /* calculate and store new buffer index */
+        tmptail = (UART1_TxTail + 1) & UART_TX_BUFFER_MASK;
+     8c2:	e0 91 86 01 	lds	r30, 0x0186
+     8c6:	ef 5f       	subi	r30, 0xFF	; 255
+     8c8:	ef 71       	andi	r30, 0x1F	; 31
+        UART1_TxTail = tmptail;
+     8ca:	e0 93 86 01 	sts	0x0186, r30
+        /* get one byte from buffer and write it to UART */
+        UART1_DATA = UART1_TxBuf[tmptail];  /* start transmission */
+     8ce:	f0 e0       	ldi	r31, 0x00	; 0
+     8d0:	eb 5b       	subi	r30, 0xBB	; 187
+     8d2:	fe 4f       	sbci	r31, 0xFE	; 254
+     8d4:	80 81       	ld	r24, Z
+     8d6:	83 b9       	out	0x03, r24	; 3
+     8d8:	01 c0       	rjmp	.+2      	; 0x8dc <__vector_22+0x38>
+    }else{
+        /* tx buffer empty, disable UDRE interrupt */
+        UART1_CONTROL &= ~_BV(UART1_UDRIE);
+     8da:	0d 98       	cbi	0x01, 5	; 1
+    }
+}
+     8dc:	ff 91       	pop	r31
+     8de:	ef 91       	pop	r30
+     8e0:	9f 91       	pop	r25
+     8e2:	8f 91       	pop	r24
+     8e4:	0f 90       	pop	r0
+     8e6:	0f be       	out	0x3f, r0	; 63
+     8e8:	0f 90       	pop	r0
+     8ea:	1f 90       	pop	r1
+     8ec:	18 95       	reti
+
+000008ee <uart1_init>:
+Purpose:  initialize UART1 and set baudrate
+Input:    baudrate using macro UART_BAUD_SELECT()
+Returns:  none
+**************************************************************************/
+void uart1_init(unsigned int baudrate)
+{
+     8ee:	9c 01       	movw	r18, r24
+    UART1_TxHead = 0;
+     8f0:	10 92 85 01 	sts	0x0185, r1
+    UART1_TxTail = 0;
+     8f4:	10 92 86 01 	sts	0x0186, r1
+    UART1_RxHead = 0;
+     8f8:	10 92 87 01 	sts	0x0187, r1
+    UART1_RxTail = 0;
+     8fc:	10 92 88 01 	sts	0x0188, r1
+    
+
+    /* Set baud rate */
+    if ( baudrate & 0x8000 ) 
+     900:	97 ff       	sbrs	r25, 7
+     902:	03 c0       	rjmp	.+6      	; 0x90a <uart1_init+0x1c>
+    {
+    	UART1_STATUS = (1<<U2X1);  //Enable 2x speed 
+     904:	82 e0       	ldi	r24, 0x02	; 2
+     906:	82 b9       	out	0x02, r24	; 2
+      baudrate &= ~0x8000;
+     908:	3f 77       	andi	r19, 0x7F	; 127
+    }
+    UBRR1H = (unsigned char)(baudrate>>8);
+     90a:	3c bf       	out	0x3c, r19	; 60
+    UBRR1L = (unsigned char) baudrate;
+     90c:	20 b9       	out	0x00, r18	; 0
+
+    /* Enable USART receiver and transmitter and receive complete interrupt */
+    UART1_CONTROL = _BV(RXCIE1)|(1<<RXEN1)|(1<<TXEN1);
+     90e:	88 e9       	ldi	r24, 0x98	; 152
+     910:	81 b9       	out	0x01, r24	; 1
+    
+    /* Set frame format: asynchronous, 8data, no parity, 1stop bit */   
+    #ifdef URSEL1
+    UCSR1C = (1<<URSEL1)|(3<<UCSZ10);
+     912:	86 e8       	ldi	r24, 0x86	; 134
+     914:	8c bf       	out	0x3c, r24	; 60
+    #else
+    UCSR1C = (3<<UCSZ10);
+    #endif 
+}/* uart_init */
+     916:	08 95       	ret
+
+00000918 <uart1_getc>:
+{    
+    unsigned char tmptail;
+    unsigned char data;
+
+
+    if ( UART1_RxHead == UART1_RxTail ) {
+     918:	90 91 87 01 	lds	r25, 0x0187
+     91c:	80 91 88 01 	lds	r24, 0x0188
+     920:	98 17       	cp	r25, r24
+     922:	19 f4       	brne	.+6      	; 0x92a <uart1_getc+0x12>
+     924:	20 e0       	ldi	r18, 0x00	; 0
+     926:	31 e0       	ldi	r19, 0x01	; 1
+     928:	12 c0       	rjmp	.+36     	; 0x94e <uart1_getc+0x36>
+        return UART_NO_DATA;   /* no data available */
+    }
+    
+    /* calculate /store buffer index */
+    tmptail = (UART1_RxTail + 1) & UART_RX_BUFFER_MASK;
+     92a:	e0 91 88 01 	lds	r30, 0x0188
+     92e:	ef 5f       	subi	r30, 0xFF	; 255
+     930:	ef 71       	andi	r30, 0x1F	; 31
+    UART1_RxTail = tmptail; 
+     932:	e0 93 88 01 	sts	0x0188, r30
+    
+    /* get data from receive buffer */
+    data = UART1_RxBuf[tmptail];
+     936:	f0 e0       	ldi	r31, 0x00	; 0
+     938:	eb 59       	subi	r30, 0x9B	; 155
+     93a:	fe 4f       	sbci	r31, 0xFE	; 254
+     93c:	30 81       	ld	r19, Z
+    
+    return (UART1_LastRxError << 8) + data;
+     93e:	20 91 89 01 	lds	r18, 0x0189
+     942:	92 2f       	mov	r25, r18
+     944:	80 e0       	ldi	r24, 0x00	; 0
+     946:	ac 01       	movw	r20, r24
+     948:	43 0f       	add	r20, r19
+     94a:	51 1d       	adc	r21, r1
+     94c:	9a 01       	movw	r18, r20
+
+}/* uart1_getc */
+     94e:	c9 01       	movw	r24, r18
+     950:	08 95       	ret
+
+00000952 <uart1_putc>:
+Purpose:  write byte to ringbuffer for transmitting via UART
+Input:    byte to be transmitted
+Returns:  none          
+**************************************************************************/
+void uart1_putc(unsigned char data)
+{
+     952:	28 2f       	mov	r18, r24
+    unsigned char tmphead;
+
+    
+    tmphead  = (UART1_TxHead + 1) & UART_TX_BUFFER_MASK;
+     954:	90 91 85 01 	lds	r25, 0x0185
+     958:	9f 5f       	subi	r25, 0xFF	; 255
+     95a:	9f 71       	andi	r25, 0x1F	; 31
+    
+    while ( tmphead == UART1_TxTail ){
+     95c:	80 91 86 01 	lds	r24, 0x0186
+     960:	98 17       	cp	r25, r24
+     962:	e1 f3       	breq	.-8      	; 0x95c <uart1_putc+0xa>
+        ;/* wait for free space in buffer */
+    }
+    
+    UART1_TxBuf[tmphead] = data;
+     964:	e9 2f       	mov	r30, r25
+     966:	f0 e0       	ldi	r31, 0x00	; 0
+     968:	eb 5b       	subi	r30, 0xBB	; 187
+     96a:	fe 4f       	sbci	r31, 0xFE	; 254
+     96c:	20 83       	st	Z, r18
+    UART1_TxHead = tmphead;
+     96e:	90 93 85 01 	sts	0x0185, r25
+
+    /* enable UDRE interrupt */
+    UART1_CONTROL    |= _BV(UART1_UDRIE);
+     972:	0d 9a       	sbi	0x01, 5	; 1
+
+}/* uart1_putc */
+     974:	08 95       	ret
+
+00000976 <uart1_puts>:
+Purpose:  transmit string to UART1
+Input:    string to be transmitted
+Returns:  none          
+**************************************************************************/
+void uart1_puts(const char *s )
+{
+     976:	cf 93       	push	r28
+     978:	df 93       	push	r29
+     97a:	ec 01       	movw	r28, r24
+     97c:	03 c0       	rjmp	.+6      	; 0x984 <uart1_puts+0xe>
+    while (*s) 
+      uart1_putc(*s++);
+     97e:	21 96       	adiw	r28, 0x01	; 1
+     980:	0e 94 a9 04 	call	0x952	; 0x952 <uart1_putc>
+Input:    string to be transmitted
+Returns:  none          
+**************************************************************************/
+void uart1_puts(const char *s )
+{
+    while (*s) 
+     984:	88 81       	ld	r24, Y
+     986:	88 23       	and	r24, r24
+     988:	d1 f7       	brne	.-12     	; 0x97e <uart1_puts+0x8>
+      uart1_putc(*s++);
+
+}/* uart1_puts */
+     98a:	df 91       	pop	r29
+     98c:	cf 91       	pop	r28
+     98e:	08 95       	ret
+
+00000990 <uart1_puts_p>:
+Purpose:  transmit string from program memory to UART1
+Input:    program memory string to be transmitted
+Returns:  none
+**************************************************************************/
+void uart1_puts_p(const char *progmem_s )
+{
+     990:	cf 93       	push	r28
+     992:	df 93       	push	r29
+     994:	ec 01       	movw	r28, r24
+     996:	02 c0       	rjmp	.+4      	; 0x99c <uart1_puts_p+0xc>
+    register char c;
+    
+    while ( (c = pgm_read_byte(progmem_s++)) ) 
+      uart1_putc(c);
+     998:	0e 94 a9 04 	call	0x952	; 0x952 <uart1_putc>
+     99c:	fe 01       	movw	r30, r28
+**************************************************************************/
+void uart1_puts_p(const char *progmem_s )
+{
+    register char c;
+    
+    while ( (c = pgm_read_byte(progmem_s++)) ) 
+     99e:	21 96       	adiw	r28, 0x01	; 1
+     9a0:	84 91       	lpm	r24, Z+
+     9a2:	88 23       	and	r24, r24
+     9a4:	c9 f7       	brne	.-14     	; 0x998 <uart1_puts_p+0x8>
+      uart1_putc(c);
+
+}/* uart1_puts_p */
+     9a6:	df 91       	pop	r29
+     9a8:	cf 91       	pop	r28
+     9aa:	08 95       	ret
+
+000009ac <__vector_16>:
+	volatile struct 	 rgb to;		//Zielfarbe
+	uint16_t time;		//100ms pro Digit
+} f_ctrl;
+
+// Timer 0 Output COMPARE Interrupt
+ISR(TIMER0_COMP_vect) {
+     9ac:	1f 92       	push	r1
+     9ae:	0f 92       	push	r0
+     9b0:	0f b6       	in	r0, 0x3f	; 63
+     9b2:	0f 92       	push	r0
+     9b4:	11 24       	eor	r1, r1
+     9b6:	2f 93       	push	r18
+     9b8:	3f 93       	push	r19
+     9ba:	4f 93       	push	r20
+     9bc:	8f 93       	push	r24
+     9be:	9f 93       	push	r25
+	//hier werden die Takt bis zum nächsten INt einfach hinzuadiert. 
+	//Der Timer läuft danach wieder über.
+	//So stimmt der Takt trotz der Zeit, die die Int Routine verbraucht.
+    //OCR0 += (uint8_t)T_PWM;
+    //OCR0 += 174;  //CPU-Takt / (Frequenz * Auflösung) 90Hz
+    OCR0 += 156;
+     9c0:	81 b7       	in	r24, 0x31	; 49
+     9c2:	84 56       	subi	r24, 0x64	; 100
+     9c4:	81 bf       	out	0x31, r24	; 49
+//     if (pwm_setting[2] > pwm_cnt) tmpPort &= ~(1<<2);
+//     if (pwm_setting[3] > pwm_cnt) tmpPort &= ~(1<<3);
+//     
+//     tmpPort ^= (1<<3);
+    
+    if (pwm_setting[0] <= pwm_cnt) tmpPort |= (1<<0);
+     9c6:	20 91 8a 01 	lds	r18, 0x018A
+     9ca:	30 91 8b 01 	lds	r19, 0x018B
+     9ce:	40 e0       	ldi	r20, 0x00	; 0
+     9d0:	80 91 9f 01 	lds	r24, 0x019F
+     9d4:	90 91 a0 01 	lds	r25, 0x01A0
+     9d8:	28 17       	cp	r18, r24
+     9da:	39 07       	cpc	r19, r25
+     9dc:	08 f0       	brcs	.+2      	; 0x9e0 <__vector_16+0x34>
+     9de:	41 e0       	ldi	r20, 0x01	; 1
+    if (pwm_setting[1] <= pwm_cnt) tmpPort |= (1<<1);
+     9e0:	80 91 a1 01 	lds	r24, 0x01A1
+     9e4:	90 91 a2 01 	lds	r25, 0x01A2
+     9e8:	28 17       	cp	r18, r24
+     9ea:	39 07       	cpc	r19, r25
+     9ec:	08 f0       	brcs	.+2      	; 0x9f0 <__vector_16+0x44>
+     9ee:	42 60       	ori	r20, 0x02	; 2
+    if (pwm_setting[2] <= pwm_cnt) tmpPort |= (1<<2);
+     9f0:	80 91 a3 01 	lds	r24, 0x01A3
+     9f4:	90 91 a4 01 	lds	r25, 0x01A4
+     9f8:	28 17       	cp	r18, r24
+     9fa:	39 07       	cpc	r19, r25
+     9fc:	08 f0       	brcs	.+2      	; 0xa00 <__vector_16+0x54>
+     9fe:	44 60       	ori	r20, 0x04	; 4
+    if (pwm_setting[3] <= pwm_cnt) tmpPort |= (1<<3);
+     a00:	80 91 a5 01 	lds	r24, 0x01A5
+     a04:	90 91 a6 01 	lds	r25, 0x01A6
+     a08:	28 17       	cp	r18, r24
+     a0a:	39 07       	cpc	r19, r25
+     a0c:	08 f0       	brcs	.+2      	; 0xa10 <__vector_16+0x64>
+     a0e:	48 60       	ori	r20, 0x08	; 8
+    
+    //Später sollte das anders gelöst sein.
+    //Nur die gesetzten Bist sollen auf den Port uebertragen werden
+    //so kann der Port auch für andere Aufgaben genutzt werden!
+    
+    PWM_PORT = tmpPort;                         // PWMs aktualisieren  
+     a10:	4b bb       	out	0x1b, r20	; 27
+    
+    if (pwm_cnt==1023) //1023 schritte Auflößung
+     a12:	83 e0       	ldi	r24, 0x03	; 3
+     a14:	2f 3f       	cpi	r18, 0xFF	; 255
+     a16:	38 07       	cpc	r19, r24
+     a18:	29 f4       	brne	.+10     	; 0xa24 <__vector_16+0x78>
+        pwm_cnt=0;
+     a1a:	10 92 8b 01 	sts	0x018B, r1
+     a1e:	10 92 8a 01 	sts	0x018A, r1
+     a22:	06 c0       	rjmp	.+12     	; 0xa30 <__vector_16+0x84>
+    else
+        pwm_cnt++;
+     a24:	2f 5f       	subi	r18, 0xFF	; 255
+     a26:	3f 4f       	sbci	r19, 0xFF	; 255
+     a28:	30 93 8b 01 	sts	0x018B, r19
+     a2c:	20 93 8a 01 	sts	0x018A, r18
+}
+     a30:	9f 91       	pop	r25
+     a32:	8f 91       	pop	r24
+     a34:	4f 91       	pop	r20
+     a36:	3f 91       	pop	r19
+     a38:	2f 91       	pop	r18
+     a3a:	0f 90       	pop	r0
+     a3c:	0f be       	out	0x3f, r0	; 63
+     a3e:	0f 90       	pop	r0
+     a40:	1f 90       	pop	r1
+     a42:	18 95       	reti
+
+00000a44 <led_init>:
+
+//Initialisiert die Lib 
+void led_init(void) 
+{
+	LED_On_DDR |= (1<<LED_On_Pin);	//LED_On_Pin als Ausgang
+     a44:	a0 9a       	sbi	0x14, 0	; 20
+    PWM_DDR = 0xFF;			// Port als Ausgang
+     a46:	8f ef       	ldi	r24, 0xFF	; 255
+     a48:	8a bb       	out	0x1a, r24	; 26
+    TIMSK |= (1<<OCIE0);   // Interrupt freischalten
+     a4a:	89 b7       	in	r24, 0x39	; 57
+     a4c:	81 60       	ori	r24, 0x01	; 1
+     a4e:	89 bf       	out	0x39, r24	; 57
+    ETIMSK |= (1<<OCIE3A);
+     a50:	ed e7       	ldi	r30, 0x7D	; 125
+     a52:	f0 e0       	ldi	r31, 0x00	; 0
+     a54:	80 81       	ld	r24, Z
+     a56:	80 61       	ori	r24, 0x10	; 16
+     a58:	80 83       	st	Z, r24
+    f_ctrl.state = fader_stop;
+     a5a:	81 e0       	ldi	r24, 0x01	; 1
+     a5c:	80 93 a7 01 	sts	0x01A7, r24
+    DDRD |= (1<<DDB4);
+     a60:	8c 9a       	sbi	0x11, 4	; 17
+		
+}
+     a62:	08 95       	ret
+
+00000a64 <led_on>:
+
+//Schaltet LED und PWM aus
+void led_on(void)
+{
+	LED_On_Port |= (1<<LED_On_Pin); //Mosfet einschalten
+     a64:	a8 9a       	sbi	0x15, 0	; 21
+	TCCR0 |= (1 << CS00);	// Timer mit vollem Sys-takt starten	
+     a66:	83 b7       	in	r24, 0x33	; 51
+     a68:	81 60       	ori	r24, 0x01	; 1
+     a6a:	83 bf       	out	0x33, r24	; 51
+}
+     a6c:	08 95       	ret
+
+00000a6e <led_off>:
+
+//Schaltet LED und PWM an
+void led_off(void)
+{
+	TCCR0 &= ~(1 << CS00);	// Timer deaktivieren
+     a6e:	83 b7       	in	r24, 0x33	; 51
+     a70:	8e 7f       	andi	r24, 0xFE	; 254
+     a72:	83 bf       	out	0x33, r24	; 51
+	PWM_PORT = 0x00;		//Port abschalten
+     a74:	1b ba       	out	0x1b, r1	; 27
+	LED_On_Port &= ~(1<<LED_On_Pin); //Mos-Fet abschalten
+     a76:	a8 98       	cbi	0x15, 0	; 21
+}
+     a78:	08 95       	ret
+
+00000a7a <set_led_color>:
+/*
+Setzt eine Farbe. Die Farbe wird als Zeiger auf ein Struct
+übergeben. So wird das kopieren vermieden. 
+*/
+void set_led_color(struct rgb *Color)
+{
+     a7a:	dc 01       	movw	r26, r24
+	//color_akt "." rgb weil es direkt adressiert wird.
+	//Color "->" rgb weil es als Pointer übergeben wurde
+	uint8_t i;
+	for(i=0;i<3;i++)
+	{
+		Color_akt.rgb[i] = Color->rgb[i];	//Farbe unkorrigiert zwischenspeichern
+     a7c:	8c 91       	ld	r24, X
+     a7e:	80 93 9c 01 	sts	0x019C, r24
+     a82:	11 96       	adiw	r26, 0x01	; 1
+     a84:	8c 91       	ld	r24, X
+     a86:	11 97       	sbiw	r26, 0x01	; 1
+     a88:	80 93 9d 01 	sts	0x019D, r24
+     a8c:	12 96       	adiw	r26, 0x02	; 2
+     a8e:	8c 91       	ld	r24, X
+     a90:	12 97       	sbiw	r26, 0x02	; 2
+     a92:	80 93 9e 01 	sts	0x019E, r24
+                                    
+//gibt den für das menschliche Auge korigierten Wert zurück.
+uint16_t human_correction (uint8_t value)
+{
+	//Gibt den entsprechenden Farbwert aus der Tabelle zurück.
+	return pgm_read_word(pwmtable + value);
+     a96:	8c 91       	ld	r24, X
+     a98:	48 2f       	mov	r20, r24
+     a9a:	50 e0       	ldi	r21, 0x00	; 0
+     a9c:	44 0f       	add	r20, r20
+     a9e:	55 1f       	adc	r21, r21
+     aa0:	20 e7       	ldi	r18, 0x70	; 112
+     aa2:	30 e0       	ldi	r19, 0x00	; 0
+     aa4:	42 0f       	add	r20, r18
+     aa6:	53 1f       	adc	r21, r19
+     aa8:	fa 01       	movw	r30, r20
+     aaa:	85 91       	lpm	r24, Z+
+     aac:	94 91       	lpm	r25, Z+
+	}
+	
+//	cli();		//Opperation muss atomar erfolgen, also Int abschalten
+	for (i=0;i<3;i++)
+	{
+		pwm_setting[i] = human_correction(Color->rgb[i]);
+     aae:	90 93 a0 01 	sts	0x01A0, r25
+     ab2:	80 93 9f 01 	sts	0x019F, r24
+                                    
+//gibt den für das menschliche Auge korigierten Wert zurück.
+uint16_t human_correction (uint8_t value)
+{
+	//Gibt den entsprechenden Farbwert aus der Tabelle zurück.
+	return pgm_read_word(pwmtable + value);
+     ab6:	11 96       	adiw	r26, 0x01	; 1
+     ab8:	8c 91       	ld	r24, X
+     aba:	11 97       	sbiw	r26, 0x01	; 1
+     abc:	48 2f       	mov	r20, r24
+     abe:	50 e0       	ldi	r21, 0x00	; 0
+     ac0:	44 0f       	add	r20, r20
+     ac2:	55 1f       	adc	r21, r21
+     ac4:	42 0f       	add	r20, r18
+     ac6:	53 1f       	adc	r21, r19
+     ac8:	fa 01       	movw	r30, r20
+     aca:	85 91       	lpm	r24, Z+
+     acc:	94 91       	lpm	r25, Z+
+	}
+	
+//	cli();		//Opperation muss atomar erfolgen, also Int abschalten
+	for (i=0;i<3;i++)
+	{
+		pwm_setting[i] = human_correction(Color->rgb[i]);
+     ace:	90 93 a2 01 	sts	0x01A2, r25
+     ad2:	80 93 a1 01 	sts	0x01A1, r24
+                                    
+//gibt den für das menschliche Auge korigierten Wert zurück.
+uint16_t human_correction (uint8_t value)
+{
+	//Gibt den entsprechenden Farbwert aus der Tabelle zurück.
+	return pgm_read_word(pwmtable + value);
+     ad6:	12 96       	adiw	r26, 0x02	; 2
+     ad8:	8c 91       	ld	r24, X
+     ada:	e8 2f       	mov	r30, r24
+     adc:	f0 e0       	ldi	r31, 0x00	; 0
+     ade:	ee 0f       	add	r30, r30
+     ae0:	ff 1f       	adc	r31, r31
+     ae2:	e2 0f       	add	r30, r18
+     ae4:	f3 1f       	adc	r31, r19
+     ae6:	85 91       	lpm	r24, Z+
+     ae8:	94 91       	lpm	r25, Z+
+	}
+	
+//	cli();		//Opperation muss atomar erfolgen, also Int abschalten
+	for (i=0;i<3;i++)
+	{
+		pwm_setting[i] = human_correction(Color->rgb[i]);
+     aea:	90 93 a4 01 	sts	0x01A4, r25
+     aee:	80 93 a3 01 	sts	0x01A3, r24
+	}
+//	sei();
+}
+     af2:	08 95       	ret
+
+00000af4 <hsv2rgb>:
+
+void hsv2rgb(struct hsv *Color_hsv, struct rgb *Color_rgb)
+{
+     af4:	af 92       	push	r10
+     af6:	bf 92       	push	r11
+     af8:	cf 92       	push	r12
+     afa:	df 92       	push	r13
+     afc:	ef 92       	push	r14
+     afe:	ff 92       	push	r15
+     b00:	0f 93       	push	r16
+     b02:	1f 93       	push	r17
+     b04:	cf 93       	push	r28
+     b06:	df 93       	push	r29
+     b08:	fc 01       	movw	r30, r24
+     b0a:	eb 01       	movw	r28, r22
+	//Wenn Sättigung 0 ist die Farbe immer schwarz also
+	//wird nur rgb 0x00 0x00 0x00 zurück gegeben.
+    if ((Color_hsv->saturation) == 0) 
+     b0c:	02 81       	ldd	r16, Z+2	; 0x02
+     b0e:	00 23       	and	r16, r16
+     b10:	21 f4       	brne	.+8      	; 0xb1a <hsv2rgb+0x26>
+    {
+    	Color_rgb->Red	 = 0x00;
+     b12:	18 82       	st	Y, r1
+    	Color_rgb->Green = 0x00;
+     b14:	19 82       	std	Y+1, r1	; 0x01
+    	Color_rgb->Blue	 = 0x00;
+     b16:	1a 82       	std	Y+2, r1	; 0x02
+     b18:	99 c0       	rjmp	.+306    	; 0xc4c <hsv2rgb+0x158>
+        return;
+    }
+
+	//Hue darf nicht größer 360 sein.
+	//if (Color_hsv->hue > 360) Color_hsv->hue = 360;
+    uint16_t h = Color_hsv->hue % 360;
+     b1a:	80 81       	ld	r24, Z
+     b1c:	91 81       	ldd	r25, Z+1	; 0x01
+     b1e:	68 e6       	ldi	r22, 0x68	; 104
+     b20:	71 e0       	ldi	r23, 0x01	; 1
+     b22:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     b26:	48 2f       	mov	r20, r24
+     b28:	d9 2e       	mov	r13, r25
+    //Werte den Arbeitsvariablen zuweisen
+    //uint16_t h = Color_hsv->hue; 
+    uint8_t s = Color_hsv->saturation;
+    uint8_t v = Color_hsv->value;
+     b2a:	c3 80       	ldd	r12, Z+3	; 0x03
+
+	//Dieser Code stammt nicht von mir.
+	//Siehe -> Wikipedia und PDF
+    uint16_t f = ((h % 60) * 255 + 30)/60;
+     b2c:	6c e3       	ldi	r22, 0x3C	; 60
+     b2e:	70 e0       	ldi	r23, 0x00	; 0
+     b30:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     b34:	2f ef       	ldi	r18, 0xFF	; 255
+     b36:	30 e0       	ldi	r19, 0x00	; 0
+     b38:	bc 01       	movw	r22, r24
+     b3a:	62 9f       	mul	r22, r18
+     b3c:	c0 01       	movw	r24, r0
+     b3e:	63 9f       	mul	r22, r19
+     b40:	90 0d       	add	r25, r0
+     b42:	72 9f       	mul	r23, r18
+     b44:	90 0d       	add	r25, r0
+     b46:	11 24       	eor	r1, r1
+     b48:	4e 96       	adiw	r24, 0x1e	; 30
+     b4a:	6c e3       	ldi	r22, 0x3C	; 60
+     b4c:	70 e0       	ldi	r23, 0x00	; 0
+     b4e:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     b52:	fb 01       	movw	r30, r22
+    uint16_t p = (v * (255-s)+128)/255;
+     b54:	10 e0       	ldi	r17, 0x00	; 0
+     b56:	c9 01       	movw	r24, r18
+     b58:	80 1b       	sub	r24, r16
+     b5a:	91 0b       	sbc	r25, r17
+     b5c:	ec 2c       	mov	r14, r12
+     b5e:	ff 24       	eor	r15, r15
+     b60:	bc 01       	movw	r22, r24
+     b62:	6e 9d       	mul	r22, r14
+     b64:	c0 01       	movw	r24, r0
+     b66:	6f 9d       	mul	r22, r15
+     b68:	90 0d       	add	r25, r0
+     b6a:	7e 9d       	mul	r23, r14
+     b6c:	90 0d       	add	r25, r0
+     b6e:	11 24       	eor	r1, r1
+     b70:	80 58       	subi	r24, 0x80	; 128
+     b72:	9f 4f       	sbci	r25, 0xFF	; 255
+     b74:	6f ef       	ldi	r22, 0xFF	; 255
+     b76:	70 e0       	ldi	r23, 0x00	; 0
+     b78:	0e 94 98 07 	call	0xf30	; 0xf30 <__divmodhi4>
+     b7c:	b6 2e       	mov	r11, r22
+    uint16_t q = ((v * (255 - (s*f+128)/255))+128)/255;
+     b7e:	e0 9f       	mul	r30, r16
+     b80:	c0 01       	movw	r24, r0
+     b82:	e1 9f       	mul	r30, r17
+     b84:	90 0d       	add	r25, r0
+     b86:	f0 9f       	mul	r31, r16
+     b88:	90 0d       	add	r25, r0
+     b8a:	11 24       	eor	r1, r1
+     b8c:	80 58       	subi	r24, 0x80	; 128
+     b8e:	9f 4f       	sbci	r25, 0xFF	; 255
+     b90:	6f ef       	ldi	r22, 0xFF	; 255
+     b92:	70 e0       	ldi	r23, 0x00	; 0
+     b94:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     b98:	c9 01       	movw	r24, r18
+     b9a:	86 1b       	sub	r24, r22
+     b9c:	97 0b       	sbc	r25, r23
+     b9e:	bc 01       	movw	r22, r24
+     ba0:	6e 9d       	mul	r22, r14
+     ba2:	c0 01       	movw	r24, r0
+     ba4:	6f 9d       	mul	r22, r15
+     ba6:	90 0d       	add	r25, r0
+     ba8:	7e 9d       	mul	r23, r14
+     baa:	90 0d       	add	r25, r0
+     bac:	11 24       	eor	r1, r1
+     bae:	80 58       	subi	r24, 0x80	; 128
+     bb0:	9f 4f       	sbci	r25, 0xFF	; 255
+     bb2:	6f ef       	ldi	r22, 0xFF	; 255
+     bb4:	70 e0       	ldi	r23, 0x00	; 0
+     bb6:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     bba:	a6 2e       	mov	r10, r22
+    uint16_t t = (v * (255 - ((s * (255 - f))/255)))/255;
+     bbc:	c9 01       	movw	r24, r18
+     bbe:	8e 1b       	sub	r24, r30
+     bc0:	9f 0b       	sbc	r25, r31
+     bc2:	bc 01       	movw	r22, r24
+     bc4:	60 9f       	mul	r22, r16
+     bc6:	c0 01       	movw	r24, r0
+     bc8:	61 9f       	mul	r22, r17
+     bca:	90 0d       	add	r25, r0
+     bcc:	70 9f       	mul	r23, r16
+     bce:	90 0d       	add	r25, r0
+     bd0:	11 24       	eor	r1, r1
+     bd2:	6f ef       	ldi	r22, 0xFF	; 255
+     bd4:	70 e0       	ldi	r23, 0x00	; 0
+     bd6:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     bda:	26 1b       	sub	r18, r22
+     bdc:	37 0b       	sbc	r19, r23
+     bde:	2e 9d       	mul	r18, r14
+     be0:	c0 01       	movw	r24, r0
+     be2:	2f 9d       	mul	r18, r15
+     be4:	90 0d       	add	r25, r0
+     be6:	3e 9d       	mul	r19, r14
+     be8:	90 0d       	add	r25, r0
+     bea:	11 24       	eor	r1, r1
+     bec:	6f ef       	ldi	r22, 0xFF	; 255
+     bee:	70 e0       	ldi	r23, 0x00	; 0
+     bf0:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     bf4:	26 2f       	mov	r18, r22
+
+    uint8_t i = h/60;
+
+    switch (i) 
+     bf6:	84 2f       	mov	r24, r20
+     bf8:	9d 2d       	mov	r25, r13
+     bfa:	6c e3       	ldi	r22, 0x3C	; 60
+     bfc:	70 e0       	ldi	r23, 0x00	; 0
+     bfe:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     c02:	62 30       	cpi	r22, 0x02	; 2
+     c04:	a9 f0       	breq	.+42     	; 0xc30 <hsv2rgb+0x13c>
+     c06:	63 30       	cpi	r22, 0x03	; 3
+     c08:	28 f4       	brcc	.+10     	; 0xc14 <hsv2rgb+0x120>
+     c0a:	66 23       	and	r22, r22
+     c0c:	51 f0       	breq	.+20     	; 0xc22 <hsv2rgb+0x12e>
+     c0e:	61 30       	cpi	r22, 0x01	; 1
+     c10:	e9 f4       	brne	.+58     	; 0xc4c <hsv2rgb+0x158>
+     c12:	0a c0       	rjmp	.+20     	; 0xc28 <hsv2rgb+0x134>
+     c14:	64 30       	cpi	r22, 0x04	; 4
+     c16:	99 f0       	breq	.+38     	; 0xc3e <hsv2rgb+0x14a>
+     c18:	64 30       	cpi	r22, 0x04	; 4
+     c1a:	70 f0       	brcs	.+28     	; 0xc38 <hsv2rgb+0x144>
+     c1c:	65 30       	cpi	r22, 0x05	; 5
+     c1e:	b1 f4       	brne	.+44     	; 0xc4c <hsv2rgb+0x158>
+     c20:	12 c0       	rjmp	.+36     	; 0xc46 <hsv2rgb+0x152>
+    {
+        case 0:
+        	Color_rgb->Red	 = v;
+     c22:	c8 82       	st	Y, r12
+    		Color_rgb->Green = t;
+     c24:	29 83       	std	Y+1, r18	; 0x01
+     c26:	02 c0       	rjmp	.+4      	; 0xc2c <hsv2rgb+0x138>
+    		Color_rgb->Blue	 = p;
+            break;
+
+        case 1:
+        	Color_rgb->Red	 = q;
+     c28:	a8 82       	st	Y, r10
+    		Color_rgb->Green = v;
+     c2a:	c9 82       	std	Y+1, r12	; 0x01
+    		Color_rgb->Blue	 = p;
+     c2c:	ba 82       	std	Y+2, r11	; 0x02
+     c2e:	0e c0       	rjmp	.+28     	; 0xc4c <hsv2rgb+0x158>
+            break;
+
+        case 2:
+        	Color_rgb->Red	 = p;
+     c30:	b8 82       	st	Y, r11
+    		Color_rgb->Green = v;
+     c32:	c9 82       	std	Y+1, r12	; 0x01
+    		Color_rgb->Blue	 = t;
+     c34:	2a 83       	std	Y+2, r18	; 0x02
+     c36:	0a c0       	rjmp	.+20     	; 0xc4c <hsv2rgb+0x158>
+            break;
+
+        case 3:
+        	Color_rgb->Red	 = p;
+     c38:	b8 82       	st	Y, r11
+    		Color_rgb->Green = q;
+     c3a:	a9 82       	std	Y+1, r10	; 0x01
+     c3c:	02 c0       	rjmp	.+4      	; 0xc42 <hsv2rgb+0x14e>
+    		Color_rgb->Blue	 = v;
+            break;
+
+        case 4:
+        	Color_rgb->Red	 = t;
+     c3e:	28 83       	st	Y, r18
+    		Color_rgb->Green = p;
+     c40:	b9 82       	std	Y+1, r11	; 0x01
+    		Color_rgb->Blue	 = v;
+     c42:	ca 82       	std	Y+2, r12	; 0x02
+     c44:	03 c0       	rjmp	.+6      	; 0xc4c <hsv2rgb+0x158>
+            break;
+
+        case 5:
+        	Color_rgb->Red	 = v;
+     c46:	c8 82       	st	Y, r12
+    		Color_rgb->Green = p;
+     c48:	b9 82       	std	Y+1, r11	; 0x01
+    		Color_rgb->Blue	 = q;
+     c4a:	aa 82       	std	Y+2, r10	; 0x02
+            break;
+    }
+}  
+     c4c:	df 91       	pop	r29
+     c4e:	cf 91       	pop	r28
+     c50:	1f 91       	pop	r17
+     c52:	0f 91       	pop	r16
+     c54:	ff 90       	pop	r15
+     c56:	ef 90       	pop	r14
+     c58:	df 90       	pop	r13
+     c5a:	cf 90       	pop	r12
+     c5c:	bf 90       	pop	r11
+     c5e:	af 90       	pop	r10
+     c60:	08 95       	ret
+
+00000c62 <set_fanspeed>:
+
+void set_fanspeed(uint16_t speed)
+{
+	pwm_setting[3] = speed;
+     c62:	90 93 a6 01 	sts	0x01A6, r25
+     c66:	80 93 a5 01 	sts	0x01A5, r24
+}
+     c6a:	08 95       	ret
+
+00000c6c <human_correction>:
+                                    
+//gibt den für das menschliche Auge korigierten Wert zurück.
+uint16_t human_correction (uint8_t value)
+{
+	//Gibt den entsprechenden Farbwert aus der Tabelle zurück.
+	return pgm_read_word(pwmtable + value);
+     c6c:	e8 2f       	mov	r30, r24
+     c6e:	f0 e0       	ldi	r31, 0x00	; 0
+     c70:	ee 0f       	add	r30, r30
+     c72:	ff 1f       	adc	r31, r31
+     c74:	e0 59       	subi	r30, 0x90	; 144
+     c76:	ff 4f       	sbci	r31, 0xFF	; 255
+     c78:	25 91       	lpm	r18, Z+
+     c7a:	34 91       	lpm	r19, Z+
+}
+     c7c:	c9 01       	movw	r24, r18
+     c7e:	08 95       	ret
+
+00000c80 <fade_calc_diff>:
+
+//Berechnet die Schritte pro Tick. So erreichen die Farben
+//gleichmäßig den Endwert.
+uint8_t fade_calc_diff(uint8_t val1, uint8_t val2)
+{
+	if (val1 > val2) return val1 - val2;
+     c80:	68 17       	cp	r22, r24
+     c82:	10 f4       	brcc	.+4      	; 0xc88 <fade_calc_diff+0x8>
+     c84:	86 1b       	sub	r24, r22
+     c86:	08 95       	ret
+	if (val1 < val2) return val2 - val1;
+     c88:	86 17       	cp	r24, r22
+     c8a:	10 f0       	brcs	.+4      	; 0xc90 <fade_calc_diff+0x10>
+     c8c:	80 e0       	ldi	r24, 0x00	; 0
+     c8e:	08 95       	ret
+     c90:	68 1b       	sub	r22, r24
+     c92:	86 2f       	mov	r24, r22
+	return 0;
+}
+     c94:	08 95       	ret
+
+00000c96 <fade_calc_bigg>:
+
+//Gibt den größten Wert zurück
+uint8_t fade_calc_bigg(uint8_t val1, uint8_t val2, uint8_t val3)
+{
+     c96:	68 17       	cp	r22, r24
+     c98:	08 f4       	brcc	.+2      	; 0xc9c <fade_calc_bigg+0x6>
+     c9a:	68 2f       	mov	r22, r24
+     c9c:	64 17       	cp	r22, r20
+     c9e:	08 f4       	brcc	.+2      	; 0xca2 <fade_calc_bigg+0xc>
+     ca0:	64 2f       	mov	r22, r20
+	uint8_t tmp = val1;
+	if (val2 > tmp) tmp = val2;
+	if (val3 > tmp) tmp = val3;
+	return tmp;
+}
+     ca2:	86 2f       	mov	r24, r22
+     ca4:	08 95       	ret
+
+00000ca6 <rgb_fade_int>:
+
+//Initialisiert den Fader
+void rgb_fade_int(struct rgb Target, uint16_t time)
+{
+     ca6:	df 93       	push	r29
+     ca8:	cf 93       	push	r28
+     caa:	00 d0       	rcall	.+0      	; 0xcac <rgb_fade_int+0x6>
+     cac:	0f 92       	push	r0
+     cae:	cd b7       	in	r28, 0x3d	; 61
+     cb0:	de b7       	in	r29, 0x3e	; 62
+     cb2:	69 83       	std	Y+1, r22	; 0x01
+     cb4:	7a 83       	std	Y+2, r23	; 0x02
+     cb6:	8b 83       	std	Y+3, r24	; 0x03
+	f_ctrl.time = time;			//Target festlegen
+     cb8:	50 93 b9 01 	sts	0x01B9, r21
+     cbc:	40 93 b8 01 	sts	0x01B8, r20
+	f_ctrl.from = Color_akt;
+     cc0:	a2 eb       	ldi	r26, 0xB2	; 178
+     cc2:	b1 e0       	ldi	r27, 0x01	; 1
+     cc4:	ec e9       	ldi	r30, 0x9C	; 156
+     cc6:	f1 e0       	ldi	r31, 0x01	; 1
+     cc8:	83 e0       	ldi	r24, 0x03	; 3
+     cca:	01 90       	ld	r0, Z+
+     ccc:	0d 92       	st	X+, r0
+     cce:	81 50       	subi	r24, 0x01	; 1
+     cd0:	e1 f7       	brne	.-8      	; 0xcca <rgb_fade_int+0x24>
+	f_ctrl.to = Target;
+     cd2:	a5 eb       	ldi	r26, 0xB5	; 181
+     cd4:	b1 e0       	ldi	r27, 0x01	; 1
+     cd6:	fe 01       	movw	r30, r28
+     cd8:	31 96       	adiw	r30, 0x01	; 1
+     cda:	83 e0       	ldi	r24, 0x03	; 3
+     cdc:	01 90       	ld	r0, Z+
+     cde:	0d 92       	st	X+, r0
+     ce0:	81 50       	subi	r24, 0x01	; 1
+     ce2:	e1 f7       	brne	.-8      	; 0xcdc <rgb_fade_int+0x36>
+	f_ctrl.count = 0;			//Counter zurücksetzen
+     ce4:	10 92 af 01 	sts	0x01AF, r1
+     ce8:	10 92 ae 01 	sts	0x01AE, r1
+	TCNT3 = (uint16_t)0;		//Zälregister 16bit Timer 3 zurücksetzen
+     cec:	10 92 89 00 	sts	0x0089, r1
+     cf0:	10 92 88 00 	sts	0x0088, r1
+	OCR3A = (uint16_t)249;		//Nächster interupt in 1ms
+     cf4:	89 ef       	ldi	r24, 0xF9	; 249
+     cf6:	90 e0       	ldi	r25, 0x00	; 0
+     cf8:	90 93 87 00 	sts	0x0087, r25
+     cfc:	80 93 86 00 	sts	0x0086, r24
+	f_ctrl.state = fader_run;	//Statemachine zurücksetzen
+     d00:	82 e0       	ldi	r24, 0x02	; 2
+     d02:	80 93 a7 01 	sts	0x01A7, r24
+}
+     d06:	0f 90       	pop	r0
+     d08:	0f 90       	pop	r0
+     d0a:	0f 90       	pop	r0
+     d0c:	cf 91       	pop	r28
+     d0e:	df 91       	pop	r29
+     d10:	08 95       	ret
+
+00000d12 <rgb_fade_tick>:
+
+void rgb_fade_tick(void)
+{
+	//Wenn der Fader gestartet wurde  	
+
+	if (f_ctrl.state == fader_run)
+     d12:	80 91 a7 01 	lds	r24, 0x01A7
+     d16:	82 30       	cpi	r24, 0x02	; 2
+     d18:	09 f0       	breq	.+2      	; 0xd1c <rgb_fade_tick+0xa>
+     d1a:	60 c0       	rjmp	.+192    	; 0xddc <rgb_fade_tick+0xca>
+     d1c:	a8 ea       	ldi	r26, 0xA8	; 168
+     d1e:	b1 e0       	ldi	r27, 0x01	; 1
+     d20:	20 e0       	ldi	r18, 0x00	; 0
+     d22:	30 e0       	ldi	r19, 0x00	; 0
+	{	
+		//Differenz zu jedem Farbkanal ausrechnen
+		uint8_t i;
+ 		for(i=0; i<3; i++)
+ 		{
+ 			f_ctrl.diff[i] = fade_calc_diff(f_ctrl.from.rgb[i], f_ctrl.to.rgb[i]);
+     d24:	f9 01       	movw	r30, r18
+     d26:	e9 55       	subi	r30, 0x59	; 89
+     d28:	fe 4f       	sbci	r31, 0xFE	; 254
+     d2a:	93 85       	ldd	r25, Z+11	; 0x0b
+     d2c:	86 85       	ldd	r24, Z+14	; 0x0e
+
+//Berechnet die Schritte pro Tick. So erreichen die Farben
+//gleichmäßig den Endwert.
+uint8_t fade_calc_diff(uint8_t val1, uint8_t val2)
+{
+	if (val1 > val2) return val1 - val2;
+     d2e:	89 17       	cp	r24, r25
+     d30:	18 f4       	brcc	.+6      	; 0xd38 <rgb_fade_tick+0x26>
+     d32:	98 1b       	sub	r25, r24
+     d34:	89 2f       	mov	r24, r25
+     d36:	05 c0       	rjmp	.+10     	; 0xd42 <rgb_fade_tick+0x30>
+	if (val1 < val2) return val2 - val1;
+     d38:	98 17       	cp	r25, r24
+     d3a:	10 f0       	brcs	.+4      	; 0xd40 <rgb_fade_tick+0x2e>
+     d3c:	80 e0       	ldi	r24, 0x00	; 0
+     d3e:	01 c0       	rjmp	.+2      	; 0xd42 <rgb_fade_tick+0x30>
+     d40:	89 1b       	sub	r24, r25
+	{	
+		//Differenz zu jedem Farbkanal ausrechnen
+		uint8_t i;
+ 		for(i=0; i<3; i++)
+ 		{
+ 			f_ctrl.diff[i] = fade_calc_diff(f_ctrl.from.rgb[i], f_ctrl.to.rgb[i]);
+     d42:	8d 93       	st	X+, r24
+     d44:	2f 5f       	subi	r18, 0xFF	; 255
+     d46:	3f 4f       	sbci	r19, 0xFF	; 255
+
+	if (f_ctrl.state == fader_run)
+	{	
+		//Differenz zu jedem Farbkanal ausrechnen
+		uint8_t i;
+ 		for(i=0; i<3; i++)
+     d48:	23 30       	cpi	r18, 0x03	; 3
+     d4a:	31 05       	cpc	r19, r1
+     d4c:	59 f7       	brne	.-42     	; 0xd24 <rgb_fade_tick+0x12>
+ 		{
+ 			f_ctrl.diff[i] = fade_calc_diff(f_ctrl.from.rgb[i], f_ctrl.to.rgb[i]);
+ 		}
+ 		
+ 		f_ctrl.max_count = f_ctrl.time;	//Timer initialisieren (Anzahl der Ticks)
+     d4e:	80 91 b8 01 	lds	r24, 0x01B8
+     d52:	90 91 b9 01 	lds	r25, 0x01B9
+     d56:	90 93 b1 01 	sts	0x01B1, r25
+     d5a:	80 93 b0 01 	sts	0x01B0, r24
+ 		//Schritte pro Farbkanal, pro Tick berechnen
+ 		for(i=0; i<3;i++)
+ 		{
+ 			f_ctrl.step[i] = f_ctrl.max_count / f_ctrl.diff[i];
+     d5e:	80 91 b0 01 	lds	r24, 0x01B0
+     d62:	90 91 b1 01 	lds	r25, 0x01B1
+     d66:	60 91 a8 01 	lds	r22, 0x01A8
+     d6a:	70 e0       	ldi	r23, 0x00	; 0
+     d6c:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     d70:	60 93 ab 01 	sts	0x01AB, r22
+     d74:	80 91 b0 01 	lds	r24, 0x01B0
+     d78:	90 91 b1 01 	lds	r25, 0x01B1
+     d7c:	60 91 a9 01 	lds	r22, 0x01A9
+     d80:	70 e0       	ldi	r23, 0x00	; 0
+     d82:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     d86:	60 93 ac 01 	sts	0x01AC, r22
+     d8a:	80 91 b0 01 	lds	r24, 0x01B0
+     d8e:	90 91 b1 01 	lds	r25, 0x01B1
+     d92:	60 91 aa 01 	lds	r22, 0x01AA
+     d96:	70 e0       	ldi	r23, 0x00	; 0
+     d98:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     d9c:	60 93 ad 01 	sts	0x01AD, r22
+     da0:	ab ea       	ldi	r26, 0xAB	; 171
+     da2:	b1 e0       	ldi	r27, 0x01	; 1
+     da4:	20 e0       	ldi	r18, 0x00	; 0
+     da6:	30 e0       	ldi	r19, 0x00	; 0
+ 		
+		//Faulheit verhindern 		
+ 		for (i=0;i<3;i++)
+ 		{
+ 			if ((f_ctrl.from.rgb[i] != f_ctrl.to.rgb[i]) && (f_ctrl.step[i] == 0))
+ 				f_ctrl.step[i] = 1;
+     da8:	41 e0       	ldi	r20, 0x01	; 1
+ 		}
+ 		
+		//Faulheit verhindern 		
+ 		for (i=0;i<3;i++)
+ 		{
+ 			if ((f_ctrl.from.rgb[i] != f_ctrl.to.rgb[i]) && (f_ctrl.step[i] == 0))
+     daa:	f9 01       	movw	r30, r18
+     dac:	e9 55       	subi	r30, 0x59	; 89
+     dae:	fe 4f       	sbci	r31, 0xFE	; 254
+     db0:	93 85       	ldd	r25, Z+11	; 0x0b
+     db2:	86 85       	ldd	r24, Z+14	; 0x0e
+     db4:	98 17       	cp	r25, r24
+     db6:	21 f0       	breq	.+8      	; 0xdc0 <rgb_fade_tick+0xae>
+     db8:	8c 91       	ld	r24, X
+     dba:	88 23       	and	r24, r24
+     dbc:	09 f4       	brne	.+2      	; 0xdc0 <rgb_fade_tick+0xae>
+ 				f_ctrl.step[i] = 1;
+     dbe:	4c 93       	st	X, r20
+     dc0:	2f 5f       	subi	r18, 0xFF	; 255
+     dc2:	3f 4f       	sbci	r19, 0xFF	; 255
+     dc4:	11 96       	adiw	r26, 0x01	; 1
+ 		{
+ 			f_ctrl.step[i] = f_ctrl.max_count / f_ctrl.diff[i];
+ 		}
+ 		
+		//Faulheit verhindern 		
+ 		for (i=0;i<3;i++)
+     dc6:	23 30       	cpi	r18, 0x03	; 3
+     dc8:	31 05       	cpc	r19, r1
+     dca:	79 f7       	brne	.-34     	; 0xdaa <rgb_fade_tick+0x98>
+ 			if ((f_ctrl.from.rgb[i] != f_ctrl.to.rgb[i]) && (f_ctrl.step[i] == 0))
+ 				f_ctrl.step[i] = 1;
+ 		}
+ 		
+ 		//Timer mit Prescaler 64 starten CTC-Mode
+ 		TCCR3B |= (1<<CS31) | (1<<CS30) | (1<<WGM32);
+     dcc:	80 91 8a 00 	lds	r24, 0x008A
+     dd0:	8b 60       	ori	r24, 0x0B	; 11
+     dd2:	80 93 8a 00 	sts	0x008A, r24
+ 		
+ 		//Fader aktivieren
+ 		f_ctrl.state = fader_running;
+     dd6:	83 e0       	ldi	r24, 0x03	; 3
+     dd8:	80 93 a7 01 	sts	0x01A7, r24
+
+ 	}
+ 	
+ 	if (f_ctrl.state == fader_running)
+     ddc:	80 91 a7 01 	lds	r24, 0x01A7
+     de0:	83 30       	cpi	r24, 0x03	; 3
+     de2:	21 f4       	brne	.+8      	; 0xdec <rgb_fade_tick+0xda>
+ 	{
+ 		//Wenn der Fader laeuft, werden hier die Farben aktualisiert.
+ 		//Das spahrt Takte in der ISR
+ 		set_led_color(&f_ctrl.from);
+     de4:	82 eb       	ldi	r24, 0xB2	; 178
+     de6:	91 e0       	ldi	r25, 0x01	; 1
+     de8:	0e 94 3d 05 	call	0xa7a	; 0xa7a <set_led_color>
+ 	}
+ 	
+ 	if (f_ctrl.state == fader_last)
+     dec:	80 91 a7 01 	lds	r24, 0x01A7
+     df0:	84 30       	cpi	r24, 0x04	; 4
+     df2:	31 f4       	brne	.+12     	; 0xe00 <rgb_fade_tick+0xee>
+ 	{
+ 		f_ctrl.state = fader_idle;
+     df4:	10 92 a7 01 	sts	0x01A7, r1
+ 		set_led_color(&f_ctrl.from);
+     df8:	82 eb       	ldi	r24, 0xB2	; 178
+     dfa:	91 e0       	ldi	r25, 0x01	; 1
+     dfc:	0e 94 3d 05 	call	0xa7a	; 0xa7a <set_led_color>
+     e00:	08 95       	ret
+
+00000e02 <fade_state>:
+ 	}
+ }
+
+uint8_t fade_state()
+{
+	return f_ctrl.state;
+     e02:	80 91 a7 01 	lds	r24, 0x01A7
+}
+     e06:	08 95       	ret
+
+00000e08 <__vector_7>:
+
+ISR(TIMER3_COMPA_vect)
+{
+     e08:	1f 92       	push	r1
+     e0a:	0f 92       	push	r0
+     e0c:	0f b6       	in	r0, 0x3f	; 63
+     e0e:	0f 92       	push	r0
+     e10:	11 24       	eor	r1, r1
+     e12:	2f 93       	push	r18
+     e14:	3f 93       	push	r19
+     e16:	5f 93       	push	r21
+     e18:	6f 93       	push	r22
+     e1a:	7f 93       	push	r23
+     e1c:	8f 93       	push	r24
+     e1e:	9f 93       	push	r25
+     e20:	af 93       	push	r26
+     e22:	bf 93       	push	r27
+     e24:	cf 93       	push	r28
+     e26:	df 93       	push	r29
+     e28:	ef 93       	push	r30
+     e2a:	ff 93       	push	r31
+	TCNT3 = (uint16_t)0;
+     e2c:	10 92 89 00 	sts	0x0089, r1
+     e30:	10 92 88 00 	sts	0x0088, r1
+	PORTD ^= (1<<PD4);
+     e34:	82 b3       	in	r24, 0x12	; 18
+     e36:	90 e1       	ldi	r25, 0x10	; 16
+     e38:	89 27       	eor	r24, r25
+     e3a:	82 bb       	out	0x12, r24	; 18
+	if (f_ctrl.count == f_ctrl.max_count)
+     e3c:	20 91 ae 01 	lds	r18, 0x01AE
+     e40:	30 91 af 01 	lds	r19, 0x01AF
+     e44:	80 91 b0 01 	lds	r24, 0x01B0
+     e48:	90 91 b1 01 	lds	r25, 0x01B1
+     e4c:	28 17       	cp	r18, r24
+     e4e:	39 07       	cpc	r19, r25
+     e50:	71 f4       	brne	.+28     	; 0xe6e <__vector_7+0x66>
+	{	
+		TCCR3B = 0;					//Timer stoppen
+     e52:	10 92 8a 00 	sts	0x008A, r1
+		f_ctrl.from = f_ctrl.to;	//Werd auf zielwert setzen 
+     e56:	e2 eb       	ldi	r30, 0xB2	; 178
+     e58:	f1 e0       	ldi	r31, 0x01	; 1
+     e5a:	df 01       	movw	r26, r30
+     e5c:	13 96       	adiw	r26, 0x03	; 3
+     e5e:	83 e0       	ldi	r24, 0x03	; 3
+     e60:	0d 90       	ld	r0, X+
+     e62:	01 92       	st	Z+, r0
+     e64:	81 50       	subi	r24, 0x01	; 1
+     e66:	e1 f7       	brne	.-8      	; 0xe60 <__vector_7+0x58>
+		f_ctrl.state = fader_last;  //Statemachine auf letzten Lauf setzen
+     e68:	84 e0       	ldi	r24, 0x04	; 4
+     e6a:	80 93 a7 01 	sts	0x01A7, r24
+     e6e:	cb ea       	ldi	r28, 0xAB	; 171
+     e70:	d1 e0       	ldi	r29, 0x01	; 1
+     e72:	20 e0       	ldi	r18, 0x00	; 0
+     e74:	30 e0       	ldi	r19, 0x00	; 0
+	}
+	
+	uint8_t i;
+	for (i=0;i<3;i++)
+	{
+ 		if (f_ctrl.from.rgb[i] > f_ctrl.to.rgb[i])
+     e76:	f9 01       	movw	r30, r18
+     e78:	e9 55       	subi	r30, 0x59	; 89
+     e7a:	fe 4f       	sbci	r31, 0xFE	; 254
+     e7c:	93 85       	ldd	r25, Z+11	; 0x0b
+     e7e:	86 85       	ldd	r24, Z+14	; 0x0e
+     e80:	89 17       	cp	r24, r25
+     e82:	68 f4       	brcc	.+26     	; 0xe9e <__vector_7+0x96>
+ 		{
+ 			if(f_ctrl.count % f_ctrl.step[i] == 0)
+     e84:	80 91 ae 01 	lds	r24, 0x01AE
+     e88:	90 91 af 01 	lds	r25, 0x01AF
+     e8c:	68 81       	ld	r22, Y
+     e8e:	70 e0       	ldi	r23, 0x00	; 0
+     e90:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     e94:	89 2b       	or	r24, r25
+     e96:	19 f4       	brne	.+6      	; 0xe9e <__vector_7+0x96>
+ 				f_ctrl.from.rgb[i]--;
+     e98:	83 85       	ldd	r24, Z+11	; 0x0b
+     e9a:	81 50       	subi	r24, 0x01	; 1
+     e9c:	83 87       	std	Z+11, r24	; 0x0b
+ 		}
+ 		
+ 		if (f_ctrl.from.rgb[i] < f_ctrl.to.rgb[i])
+     e9e:	f9 01       	movw	r30, r18
+     ea0:	e9 55       	subi	r30, 0x59	; 89
+     ea2:	fe 4f       	sbci	r31, 0xFE	; 254
+     ea4:	93 85       	ldd	r25, Z+11	; 0x0b
+     ea6:	86 85       	ldd	r24, Z+14	; 0x0e
+     ea8:	98 17       	cp	r25, r24
+     eaa:	68 f4       	brcc	.+26     	; 0xec6 <__vector_7+0xbe>
+ 		{
+ 			if(f_ctrl.count % f_ctrl.step[i] == 0)
+     eac:	80 91 ae 01 	lds	r24, 0x01AE
+     eb0:	90 91 af 01 	lds	r25, 0x01AF
+     eb4:	68 81       	ld	r22, Y
+     eb6:	70 e0       	ldi	r23, 0x00	; 0
+     eb8:	0e 94 84 07 	call	0xf08	; 0xf08 <__udivmodhi4>
+     ebc:	89 2b       	or	r24, r25
+     ebe:	19 f4       	brne	.+6      	; 0xec6 <__vector_7+0xbe>
+ 				f_ctrl.from.rgb[i]++;
+     ec0:	83 85       	ldd	r24, Z+11	; 0x0b
+     ec2:	8f 5f       	subi	r24, 0xFF	; 255
+     ec4:	83 87       	std	Z+11, r24	; 0x0b
+     ec6:	2f 5f       	subi	r18, 0xFF	; 255
+     ec8:	3f 4f       	sbci	r19, 0xFF	; 255
+     eca:	21 96       	adiw	r28, 0x01	; 1
+		f_ctrl.from = f_ctrl.to;	//Werd auf zielwert setzen 
+		f_ctrl.state = fader_last;  //Statemachine auf letzten Lauf setzen
+	}
+	
+	uint8_t i;
+	for (i=0;i<3;i++)
+     ecc:	23 30       	cpi	r18, 0x03	; 3
+     ece:	31 05       	cpc	r19, r1
+     ed0:	91 f6       	brne	.-92     	; 0xe76 <__vector_7+0x6e>
+ 			if(f_ctrl.count % f_ctrl.step[i] == 0)
+ 				f_ctrl.from.rgb[i]++;
+ 		}
+	} 
+
+	f_ctrl.count++;				//Counter incrementieren	
+     ed2:	80 91 ae 01 	lds	r24, 0x01AE
+     ed6:	90 91 af 01 	lds	r25, 0x01AF
+     eda:	01 96       	adiw	r24, 0x01	; 1
+     edc:	90 93 af 01 	sts	0x01AF, r25
+     ee0:	80 93 ae 01 	sts	0x01AE, r24
+
+     ee4:	ff 91       	pop	r31
+     ee6:	ef 91       	pop	r30
+     ee8:	df 91       	pop	r29
+     eea:	cf 91       	pop	r28
+     eec:	bf 91       	pop	r27
+     eee:	af 91       	pop	r26
+     ef0:	9f 91       	pop	r25
+     ef2:	8f 91       	pop	r24
+     ef4:	7f 91       	pop	r23
+     ef6:	6f 91       	pop	r22
+     ef8:	5f 91       	pop	r21
+     efa:	3f 91       	pop	r19
+     efc:	2f 91       	pop	r18
+     efe:	0f 90       	pop	r0
+     f00:	0f be       	out	0x3f, r0	; 63
+     f02:	0f 90       	pop	r0
+     f04:	1f 90       	pop	r1
+     f06:	18 95       	reti
+
+00000f08 <__udivmodhi4>:
+     f08:	aa 1b       	sub	r26, r26
+     f0a:	bb 1b       	sub	r27, r27
+     f0c:	51 e1       	ldi	r21, 0x11	; 17
+     f0e:	07 c0       	rjmp	.+14     	; 0xf1e <__udivmodhi4_ep>
+
+00000f10 <__udivmodhi4_loop>:
+     f10:	aa 1f       	adc	r26, r26
+     f12:	bb 1f       	adc	r27, r27
+     f14:	a6 17       	cp	r26, r22
+     f16:	b7 07       	cpc	r27, r23
+     f18:	10 f0       	brcs	.+4      	; 0xf1e <__udivmodhi4_ep>
+     f1a:	a6 1b       	sub	r26, r22
+     f1c:	b7 0b       	sbc	r27, r23
+
+00000f1e <__udivmodhi4_ep>:
+     f1e:	88 1f       	adc	r24, r24
+     f20:	99 1f       	adc	r25, r25
+     f22:	5a 95       	dec	r21
+     f24:	a9 f7       	brne	.-22     	; 0xf10 <__udivmodhi4_loop>
+     f26:	80 95       	com	r24
+     f28:	90 95       	com	r25
+     f2a:	bc 01       	movw	r22, r24
+     f2c:	cd 01       	movw	r24, r26
+     f2e:	08 95       	ret
+
+00000f30 <__divmodhi4>:
+     f30:	97 fb       	bst	r25, 7
+     f32:	09 2e       	mov	r0, r25
+     f34:	07 26       	eor	r0, r23
+     f36:	0a d0       	rcall	.+20     	; 0xf4c <__divmodhi4_neg1>
+     f38:	77 fd       	sbrc	r23, 7
+     f3a:	04 d0       	rcall	.+8      	; 0xf44 <__divmodhi4_neg2>
+     f3c:	e5 df       	rcall	.-54     	; 0xf08 <__udivmodhi4>
+     f3e:	06 d0       	rcall	.+12     	; 0xf4c <__divmodhi4_neg1>
+     f40:	00 20       	and	r0, r0
+     f42:	1a f4       	brpl	.+6      	; 0xf4a <__divmodhi4_exit>
+
+00000f44 <__divmodhi4_neg2>:
+     f44:	70 95       	com	r23
+     f46:	61 95       	neg	r22
+     f48:	7f 4f       	sbci	r23, 0xFF	; 255
+
+00000f4a <__divmodhi4_exit>:
+     f4a:	08 95       	ret
+
+00000f4c <__divmodhi4_neg1>:
+     f4c:	f6 f7       	brtc	.-4      	; 0xf4a <__divmodhi4_exit>
+     f4e:	90 95       	com	r25
+     f50:	81 95       	neg	r24
+     f52:	9f 4f       	sbci	r25, 0xFF	; 255
+     f54:	08 95       	ret
+
+00000f56 <__divmodsi4>:
+     f56:	97 fb       	bst	r25, 7
+     f58:	09 2e       	mov	r0, r25
+     f5a:	05 26       	eor	r0, r21
+     f5c:	0e d0       	rcall	.+28     	; 0xf7a <__divmodsi4_neg1>
+     f5e:	57 fd       	sbrc	r21, 7
+     f60:	04 d0       	rcall	.+8      	; 0xf6a <__divmodsi4_neg2>
+     f62:	14 d0       	rcall	.+40     	; 0xf8c <__udivmodsi4>
+     f64:	0a d0       	rcall	.+20     	; 0xf7a <__divmodsi4_neg1>
+     f66:	00 1c       	adc	r0, r0
+     f68:	38 f4       	brcc	.+14     	; 0xf78 <__divmodsi4_exit>
+
+00000f6a <__divmodsi4_neg2>:
+     f6a:	50 95       	com	r21
+     f6c:	40 95       	com	r20
+     f6e:	30 95       	com	r19
+     f70:	21 95       	neg	r18
+     f72:	3f 4f       	sbci	r19, 0xFF	; 255
+     f74:	4f 4f       	sbci	r20, 0xFF	; 255
+     f76:	5f 4f       	sbci	r21, 0xFF	; 255
+
+00000f78 <__divmodsi4_exit>:
+     f78:	08 95       	ret
+
+00000f7a <__divmodsi4_neg1>:
+     f7a:	f6 f7       	brtc	.-4      	; 0xf78 <__divmodsi4_exit>
+     f7c:	90 95       	com	r25
+     f7e:	80 95       	com	r24
+     f80:	70 95       	com	r23
+     f82:	61 95       	neg	r22
+     f84:	7f 4f       	sbci	r23, 0xFF	; 255
+     f86:	8f 4f       	sbci	r24, 0xFF	; 255
+     f88:	9f 4f       	sbci	r25, 0xFF	; 255
+     f8a:	08 95       	ret
+
+00000f8c <__udivmodsi4>:
+     f8c:	a1 e2       	ldi	r26, 0x21	; 33
+     f8e:	1a 2e       	mov	r1, r26
+     f90:	aa 1b       	sub	r26, r26
+     f92:	bb 1b       	sub	r27, r27
+     f94:	fd 01       	movw	r30, r26
+     f96:	0d c0       	rjmp	.+26     	; 0xfb2 <__udivmodsi4_ep>
+
+00000f98 <__udivmodsi4_loop>:
+     f98:	aa 1f       	adc	r26, r26
+     f9a:	bb 1f       	adc	r27, r27
+     f9c:	ee 1f       	adc	r30, r30
+     f9e:	ff 1f       	adc	r31, r31
+     fa0:	a2 17       	cp	r26, r18
+     fa2:	b3 07       	cpc	r27, r19
+     fa4:	e4 07       	cpc	r30, r20
+     fa6:	f5 07       	cpc	r31, r21
+     fa8:	20 f0       	brcs	.+8      	; 0xfb2 <__udivmodsi4_ep>
+     faa:	a2 1b       	sub	r26, r18
+     fac:	b3 0b       	sbc	r27, r19
+     fae:	e4 0b       	sbc	r30, r20
+     fb0:	f5 0b       	sbc	r31, r21
+
+00000fb2 <__udivmodsi4_ep>:
+     fb2:	66 1f       	adc	r22, r22
+     fb4:	77 1f       	adc	r23, r23
+     fb6:	88 1f       	adc	r24, r24
+     fb8:	99 1f       	adc	r25, r25
+     fba:	1a 94       	dec	r1
+     fbc:	69 f7       	brne	.-38     	; 0xf98 <__udivmodsi4_loop>
+     fbe:	60 95       	com	r22
+     fc0:	70 95       	com	r23
+     fc2:	80 95       	com	r24
+     fc4:	90 95       	com	r25
+     fc6:	9b 01       	movw	r18, r22
+     fc8:	ac 01       	movw	r20, r24
+     fca:	bd 01       	movw	r22, r26
+     fcc:	cf 01       	movw	r24, r30
+     fce:	08 95       	ret
+
+00000fd0 <memmove>:
+     fd0:	68 17       	cp	r22, r24
+     fd2:	79 07       	cpc	r23, r25
+     fd4:	68 f4       	brcc	.+26     	; 0xff0 <memmove+0x20>
+     fd6:	fb 01       	movw	r30, r22
+     fd8:	dc 01       	movw	r26, r24
+     fda:	e4 0f       	add	r30, r20
+     fdc:	f5 1f       	adc	r31, r21
+     fde:	a4 0f       	add	r26, r20
+     fe0:	b5 1f       	adc	r27, r21
+     fe2:	02 c0       	rjmp	.+4      	; 0xfe8 <memmove+0x18>
+     fe4:	02 90       	ld	r0, -Z
+     fe6:	0e 92       	st	-X, r0
+     fe8:	41 50       	subi	r20, 0x01	; 1
+     fea:	50 40       	sbci	r21, 0x00	; 0
+     fec:	d8 f7       	brcc	.-10     	; 0xfe4 <memmove+0x14>
+     fee:	08 95       	ret
+     ff0:	0c 94 fa 07 	jmp	0xff4	; 0xff4 <memcpy>
+
+00000ff4 <memcpy>:
+     ff4:	fb 01       	movw	r30, r22
+     ff6:	dc 01       	movw	r26, r24
+     ff8:	02 c0       	rjmp	.+4      	; 0xffe <memcpy+0xa>
+     ffa:	01 90       	ld	r0, Z+
+     ffc:	0d 92       	st	X+, r0
+     ffe:	41 50       	subi	r20, 0x01	; 1
+    1000:	50 40       	sbci	r21, 0x00	; 0
+    1002:	d8 f7       	brcc	.-10     	; 0xffa <memcpy+0x6>
+    1004:	08 95       	ret
+
+00001006 <_exit>:
+    1006:	f8 94       	cli
+
+00001008 <__stop_program>:
+    1008:	ff cf       	rjmp	.-2      	; 0x1008 <__stop_program>
