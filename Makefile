@@ -1,12 +1,11 @@
 PRG            = MoodPixel
-OBJ            = MoodPixel.o Libs/rf12.o Libs/uart.o Libs/led_pwm.o
+OBJ            = MoodPixel.o Libs/rf12.o Libs/uart.o Libs/led_pwm.o Libs/OneWire.o
 MCU_TARGET     = atmega162
 MCU		=atmega162
 OPTIMIZE       = -Os
 
 FLASHCMD       = avrdude -c buspirate -P /dev/tty.usbserial-A7004qB6 -p m162 -U flash:w:$(PRG).hex -Ulfuse:w:0xff:m -Uhfuse:w:0xdf:m -Uefuse:w:0xff:m
 ERASECMD       = uisp -dprog=bsd --erase
-LAUNCH_BOOTLOADER = foodloader-0.21/launcher/launch-bootloader
 
 #SERIAL = /dev/ttyS0
 SERIAL = /dev/ttyUSB0

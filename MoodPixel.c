@@ -21,54 +21,42 @@
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
-#include "Libs/uart.h"
+#include "Libs/uart.h"		//Zu debugzwecken
+#include "Libs/OneWire.h"	//
 #include "Libs/rf12.h"
 #include "Libs/led_pwm.h"
+
 
 #define UART_BAUD_RATE 57600
 #define F_CPU 16000000
 
 
-void command(uint8_t *buf)
+void command(uint8_t *buf);
+
+
+
+void adjust_fanspeed()
 {
-	/*
-	Folgende Kommands sind möglich:
-	0x00	=	MoodPxl einschalten
-	0x01	=	MoodPxl ausschalten
+	const uint16_t fansteps[6] = {900, 700, 500, 300, 100, 50};
+	start_meas();
+	uint16_t temp = read_meas();
+	uint8_t	Hight = (temp>>4);
+	uint8_t Lowt  = (temp << 12) / 6553;
 
-	0x02	=	MoodPxl Demo 1
-	0x03	=	MoodPxl Demo 2
-	0x04	=	MoodPxl Demo 3
-			
-	0x10	=	Fader_Init Param: int Zeit; byte Rot; 
-						byte Grün; byte Gelb; int Verweilzeit;
-	0x11	=	Farbe_Konstant
-	0x02	=	Programm starten Paran: 
-	*/
 		
-	uint8_t m_comand = buf[0];
-	struct rgb Color;
+
+
+
+	char buffer[10];
+	itoa( Hight, buffer, 10);
+	uart1_puts(buffer);
+	uart1_puts(".");
+	itoa( Lowt, buffer,10);
+	uart1_puts(buffer);
+
 		
-	switch (m_comand) {
-		case 0x00:
-			led_off();
-			break;
-				
-		case 0x01:
-			led_on();
-			break;
-				
-		case 0x10:
-			
-			Color.Red = buf[1];
-			Color.Green = buf[2];
-			Color.Blue = buf[3];
-			set_led_color(&Color);
-			break;
-				
-	}		
+	
 }
-
 
 int main(void)
 {
@@ -85,38 +73,81 @@ int main(void)
 
 	sei();		//Interrupts aktivieren
 
-
-	struct rgb Color;
-	
-	Color.Red = 35;
-	Color.Green = 55;
-	Color.Blue = 45;	
-	set_led_color(&Color);
-	
-	led_on();
-	_delay_ms(250);
+	set_fanspeed(1024);
 	
 	uint8_t buf_temp[10];
-	
+	uint16_t temp = 0;
 	//Mainloop
 	while(23)
 	{
-		//Wenn Puffer lesebereit ist
+		//Wenn Zeichen empfangen wurden, wird der fertiggelesene 
+		//Emofangspuffer an die Command-Funktion übergeben
 		if (rf12_getStatus() == rf12_data_status_ready)
 		{
 			rf12_getData(buf_temp); 
 			rf_data_reset();
 			command(buf_temp);
 		}
+
 		
 		
-		
+		//adjust_fanspeed();
 	}
+}	
+		
+#define mpxl_cmd_on		0x00
+#define mpxl_cmd_off	0x01
+#define mpxl_cmd_setRGB	0x02
+#define mpxl_cmd_setHSV 0x03
+
+void command(uint8_t *buf)
+{
+	/*
+	Folgende Kommands sind möglich:
+	0x00	=	MoodPxl einschalten
+	0x01	=	MoodPxl ausschalten
+	0x02	=	RGB Farbe setzen Param:
+						byte Rot; byte Grün; Byte Gelb;
+	0x03	=	HSV Farbe setzen Param:
+						word hue; byte saturation; byte Value
+			
+	0x10	=	Fader_Init Param: int Zeit; byte Rot; 
+						byte Grün; byte Gelb; int Verweilzeit;
+	0x02	=	Programm starten Paran: 
+	*/
+		
+	uint8_t m_comand = buf[0];
+	struct rgb rgb_color;
+	struct hsv hsv_color;
+		
+	switch (m_comand) {
+		case mpxl_cmd_off:
+			led_sig_ok();
+			//led_off();
+			break;
+				
+		case mpxl_cmd_on:
+			led_on();
+			break;
+				
+		case mpxl_cmd_setRGB:
+			rgb_color.Red = buf[1];
+			rgb_color.Green = buf[2];
+			rgb_color.Blue = buf[3];
+			set_led_color(&rgb_color);
+			break;
+			
+		case mpxl_cmd_setHSV:
+			hsv_color.hsv[0] = buf[1];
+			hsv_color.hsv[1] = buf[2];
+			hsv_color.saturation = buf[3];
+			hsv_color.value = buf[4];
+			hsv2rgb(&hsv_color,&rgb_color);
+			set_led_color(&rgb_color);
+			break;
+			
+	}		
 }
-		
-		
-
-
 
 
 // #define r_Demo1 0	//Demo 1 läuft

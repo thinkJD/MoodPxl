@@ -27,9 +27,9 @@
 #include "led_pwm.h"
 
 //Variablen
-uint16_t pwm_setting[4];	// Einstellungen für die einzelnen PWM-Kanäle
-struct rgb Color_akt;
-struct fader_ctrl
+static uint16_t pwm_setting[4];	// Einstellungen für die einzelnen PWM-Kanäle
+static struct rgb Color_akt;
+static struct fader_ctrl
 {
 	volatile uint8_t  state;		//Status des Faders
 	uint8_t  diff[3];	//Differenz zum Zielwert
@@ -53,13 +53,6 @@ ISR(TIMER0_COMP_vect) {
     //OCR0 += (uint8_t)T_PWM;
     //OCR0 += 174;  //CPU-Takt / (Frequenz * Auflösung) 90Hz
     OCR0 += 156;
-    
-//     if (pwm_setting[0] > pwm_cnt) tmpPort &= ~(1<<0);
-//     if (pwm_setting[1] > pwm_cnt) tmpPort &= ~(1<<1);
-//     if (pwm_setting[2] > pwm_cnt) tmpPort &= ~(1<<2);
-//     if (pwm_setting[3] > pwm_cnt) tmpPort &= ~(1<<3);
-//     
-//     tmpPort ^= (1<<3);
     
     if (pwm_setting[0] <= pwm_cnt) tmpPort |= (1<<0);
     if (pwm_setting[1] <= pwm_cnt) tmpPort |= (1<<1);
@@ -127,6 +120,73 @@ void set_led_color(struct rgb *Color)
 		pwm_setting[i] = human_correction(Color->rgb[i]);
 	}
 //	sei();
+}
+
+void led_sig_ok()
+{
+	struct rgb old;
+	
+	uint8_t i;
+	for (i=0;i<3;i++)
+	{
+		old.rgb[i] = Color_akt.rgb[i];
+		uart1_putc(Color_akt.rgb[i]);
+	}
+	
+	struct rgb temp;
+	
+	temp.Red = 50;
+	temp.Green = 200;
+	temp.Blue = 0;
+	set_led_color(&temp);
+	_delay_ms(70);
+
+	temp.Red = 0;
+	temp.Green = 0;
+	temp.Blue = 0;
+	set_led_color(&temp);
+	_delay_ms(40);
+
+	temp.Red = 50;
+	temp.Green = 200;
+	temp.Blue = 0;
+	set_led_color(&temp);
+	_delay_ms(70);
+
+	set_led_color(&old);
+}
+void sig_nok()
+{
+	struct rgb old;
+	
+	uint8_t i;
+	for (i=0;i<3;i++)
+	{
+		old.rgb[i] = Color_akt.rgb[i];
+		uart1_putc(Color_akt.rgb[i]);
+	}
+	
+	struct rgb temp;
+	
+	temp.Red = 200;
+	temp.Green = 50;
+	temp.Blue = 0;
+	set_led_color(&temp);
+	_delay_ms(100);
+
+	temp.Red = 0;
+	temp.Green = 0;
+	temp.Blue = 0;
+	set_led_color(&temp);
+	_delay_ms(50);
+
+	temp.Red = 200;
+	temp.Green = 50;
+	temp.Blue = 0;
+	set_led_color(&temp);
+	_delay_ms(100);
+
+	set_led_color(&old);
 }
 
 void hsv2rgb(struct hsv *Color_hsv, struct rgb *Color_rgb)
