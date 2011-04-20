@@ -64,32 +64,6 @@ struct hsv
     };
 };
 
-#define fscr_start 0
-#define fscr_run 0
-#define fscr_end 0
-
-#define script
-struct script_command
-{
-	//cmd_start
-	//cmd_wait
-	//cmd_stopp
-	//cmd_loop
-	
-	//cmd_fade
-		//Farbe; Fadezeit;
-	uint8_t cmd;
-	uint8_t param[4];
-};
-
-struct script
-{
-	uint8_t state;	//Status
-	uint8_t count;	//Anzahl der Einträge
-	uint8_t pos;	//Aktuelle Position im Script
-	struct fadescript_command command;
-};
-
 #define led_funktion_move = 0;
 #define led_funktion_jump = 1;
 
@@ -98,7 +72,7 @@ extern void set_led_color(struct rgb *Color);
 uint16_t human_correction (uint8_t value);
 extern void led_on(void);
 extern void led_off(void);
-extern void set_fanspeed(uint16_t speed);
+extern void set_fanspeed(uint16_t);
 extern void hsv2rgb(struct hsv *Color_hsv, struct rgb *Color_rgb);
 extern void led_sig_ok();
 

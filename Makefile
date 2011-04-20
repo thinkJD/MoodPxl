@@ -1,5 +1,5 @@
 PRG            = MoodPixel
-OBJ            = MoodPixel.o Libs/rf12.o Libs/uart.o Libs/led_pwm.o Libs/OneWire.o
+OBJ            = MoodPixel.o Libs/rf12.o Libs/uart.o Libs/led_pwm.o Libs/OneWire.o Libs/timer_delay.o Libs/script.o
 MCU_TARGET     = atmega162
 MCU		=atmega162
 OPTIMIZE       = -Os
