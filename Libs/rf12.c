@@ -1,21 +1,3 @@
-/*
-    MoodPxl a fully configurable, remote controlled, moodlamp.
-    Copyright (C) 2011  Jan-Daniel Georgens jd.georgens@gmail.com
-
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "global.h"
@@ -36,29 +18,7 @@
 #define CS		0
 #define SDO		6
 
-// #define DDR_SPI	DDRB
-// #define DD_MOSI	DDB5
-// #define DD_MISO	DDB6
-// #define DD_SCK	DDB7
-// #define DD_SS	DDB4
-// #define DD_CS	DDB0
-// 
-// void rf12_tr_init()
-// {
-// 	
-// }
-// 
-// unsigned short rf12_trans_hw(unsigned short wert)
-// {
-// 	//Ausgänge defnieren
-// 	DDR_SPI |= (1<<DD_MOSI) | (1<<DD_SCK) |	(1<<DD_DD_CS);
-// 	//Eingänge definieren
-// 	DDR_SPI &= ~(1<<DD_MISO);
-// 
-// 	//SPI Initialisieren
-// 	SPCR |= 
-// }
-
+//#define Adress 0x01
 
 volatile rf_data strRX;
 uint8_t INT_Status;
@@ -179,7 +139,7 @@ void rf12_txdata(unsigned char *data, unsigned char number)
 }
 
 /*
-Hier werden die Interrupts des Funkmoduls behandelt. 
+Ab hier ist der Code von mir.
 */
 ISR(INT1_vect)
 {
@@ -215,35 +175,39 @@ ISR(INT1_vect)
   			{
   				strRX.Status = rf12_data_status_ready;
 				strRX.Data[strRX.Count - 3] = '\0'; //Ende
-				
 				/*
 				Checksumme über die Daten prüfen
 				*/
-				
-				//FIFO Reset
 				rf12_trans(0xCA81);
 				rf12_trans(0xCA83);
 				
-				goto END;
+  				goto END;
   			}
 
   			if (strRX.Count > 2)
   			{
   				rf12_ready();
   				strRX.Data[strRX.Count - 3] = rf12_trans(0xB000);
+  				//uart1_putc(strRX.Data[strRX.Count - 3]);
   				strRX.Count++;
-  				//uart1_putc(strRX.Data[strRX.Count - 4]);
+				goto END;
   			}
 
   			//Header Check
+  			//mittels Längsparitätsprüfung
   			if (strRX.Count == 2)
   			{
   				rf12_ready();
   				uint8_t Checksumme = rf12_trans(0xB000);
-				/*
-				Check IO?
-				*/
-				strRX.Count++;
+  				
+				//Checksumme = strRX.Length ^ strRX.Adress ^ Checksumme;
+				//Wenn die Checksumme nicht stimmt wird
+				//das Frame komlett verworfen.
+ 				if(Checksumme == 0xFF)
+ 				{
+ 					strRX.Count++;
+ 					goto END;
+ 				}
   			}
 			
 			//Adressbyte lesen
@@ -251,9 +215,15 @@ ISR(INT1_vect)
   			{
   				rf12_ready();
 				strRX.Adress = rf12_trans(0xB000);
-				//uart1_putc(strRX.Adress);
-				strRX.Count++;
-  			}
+			
+				//Adresse prüfen, falls sie nicht übereinstimmt,
+				//wird das Frame verworfen.
+ 				if ((strRX.Adress == Adress) || (strRX.Adress == 0xFF))
+ 				{
+ 					strRX.Count++;
+					goto END;
+ 				}
+			}
   		}
   		
   		//Empfang beginnt
@@ -267,14 +237,22 @@ ISR(INT1_vect)
 			//Rest einfach abgeschnitten. Das ist kein Problem.
 			//Sicher gige das auch etwas elegenter.
 			strRX.Length = rf12_trans(0xB000); 	//Empfang des Längenbytes
-  			//uart1_putc(strRX.Length);
   			strRX.Count++;
+  			goto END;
   		}
-  		
+
+		//Dieser Code wirn im Normalfall übersprungen.
+		//Nur bei einem Fehler
+		//werden FIFO und Statemachine zurückgesetzt
+		strRX.Status = rf12_data_status_empty;
+  		rf12_trans(0xCA81);
+		rf12_trans(0xCA83);
+		
 		END:
 		asm volatile ("nop");
 	}
 }
+
 void rf_data_reset()
 {
 	cli();	//Diese Methode muss atomar behandelt werden. 
@@ -283,8 +261,6 @@ void rf_data_reset()
 	strRX.Length = 0;
 	strRX.Adress = 0;
 	
-	//Örks ... wenn das mal nicht ekelhaft ist.
-	//Da muss es doch eine bessere Möglichkeit geben ...
 	uint8_t i;
 	for (i=0; i<20; i++) strRX.Data[i] = 0;
 	

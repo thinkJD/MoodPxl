@@ -29,6 +29,7 @@
 //Variablen
 static uint16_t pwm_setting[4];	// Einstellungen für die einzelnen PWM-Kanäle
 static struct rgb Color_akt;
+
 static struct fader_ctrl
 {
 	volatile uint8_t  state;		//Status des Faders
@@ -59,11 +60,6 @@ ISR(TIMER0_COMP_vect) {
     if (pwm_setting[2] <= pwm_cnt) tmpPort |= (1<<2);
     if (pwm_setting[3] <= pwm_cnt) tmpPort |= (1<<3);
     
-    //tmpPort = (1<<3);
-    
-    //Später sollte das anders gelöst sein.
-    //Nur die gesetzten Bist sollen auf den Port uebertragen werden
-    //so kann der Port auch für andere Aufgaben genutzt werden!
     
     PWM_PORT = tmpPort;                         // PWMs aktualisieren  
     
@@ -122,71 +118,14 @@ void set_led_color(struct rgb *Color)
 //	sei();
 }
 
-void led_sig_ok()
+void getColor_akt(struct rgb *Color)
 {
-	struct rgb old;
-	
 	uint8_t i;
-	for (i=0;i<3;i++)
+	for(i=0;i<3;i++)
 	{
-		old.rgb[i] = Color_akt.rgb[i];
-		uart1_putc(Color_akt.rgb[i]);
+		Color->rgb[i] = Color_akt.rgb[i];
 	}
 	
-	struct rgb temp;
-	
-	temp.Red = 50;
-	temp.Green = 200;
-	temp.Blue = 0;
-	set_led_color(&temp);
-	_delay_ms(70);
-
-	temp.Red = 0;
-	temp.Green = 0;
-	temp.Blue = 0;
-	set_led_color(&temp);
-	_delay_ms(40);
-
-	temp.Red = 50;
-	temp.Green = 200;
-	temp.Blue = 0;
-	set_led_color(&temp);
-	_delay_ms(70);
-
-	set_led_color(&old);
-}
-void sig_nok()
-{
-	struct rgb old;
-	
-	uint8_t i;
-	for (i=0;i<3;i++)
-	{
-		old.rgb[i] = Color_akt.rgb[i];
-		uart1_putc(Color_akt.rgb[i]);
-	}
-	
-	struct rgb temp;
-	
-	temp.Red = 200;
-	temp.Green = 50;
-	temp.Blue = 0;
-	set_led_color(&temp);
-	_delay_ms(100);
-
-	temp.Red = 0;
-	temp.Green = 0;
-	temp.Blue = 0;
-	set_led_color(&temp);
-	_delay_ms(50);
-
-	temp.Red = 200;
-	temp.Green = 50;
-	temp.Blue = 0;
-	set_led_color(&temp);
-	_delay_ms(100);
-
-	set_led_color(&old);
 }
 
 void hsv2rgb(struct hsv *Color_hsv, struct rgb *Color_rgb)
@@ -556,12 +495,12 @@ uint8_t fade_calc_bigg(uint8_t val1, uint8_t val2, uint8_t val3)
 //Initialisiert den Fader
 void rgb_fade_int(struct rgb Target, uint16_t time)
 {
-	f_ctrl.time = time;			//Target festlegen
+	f_ctrl.time = time;			
 	f_ctrl.from = Color_akt;
-	f_ctrl.to = Target;
+	f_ctrl.to = Target;			//Target festlegen
 	f_ctrl.count = 0;			//Counter zurücksetzen
 	TCNT3 = (uint16_t)0;		//Zälregister 16bit Timer 3 zurücksetzen
-	OCR3A = (uint16_t)249;		//Nächster interupt in 1ms
+	OCR3A = (uint16_t)249;		//Nächster interupt in 10ms
 	f_ctrl.state = fader_run;	//Statemachine zurücksetzen
 }
  
@@ -622,8 +561,9 @@ uint8_t fade_state()
 
 ISR(TIMER3_COMPA_vect)
 {
-	TCNT3 = (uint16_t)0;
-	PORTD ^= (1<<PD4);
+	//TCNT3 = (uint16_t)0;
+	//Wenn die Zeit erreicht ist, alle Farbkanäle
+	//auf den Zielwert setzen.
 	if (f_ctrl.count == f_ctrl.max_count)
 	{	
 		TCCR3B = 0;					//Timer stoppen
@@ -631,6 +571,7 @@ ISR(TIMER3_COMPA_vect)
 		f_ctrl.state = fader_last;  //Statemachine auf letzten Lauf setzen
 	}
 	
+	//Prüfen ob ein Farbkanal incrementiert oder decrementiert werden muss.
 	uint8_t i;
 	for (i=0;i<3;i++)
 	{
@@ -648,5 +589,4 @@ ISR(TIMER3_COMPA_vect)
 	} 
 
 	f_ctrl.count++;				//Counter incrementieren	
-
 }

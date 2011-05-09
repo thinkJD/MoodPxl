@@ -21,152 +21,54 @@
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
-#include "Libs/uart.h"		//Zu debugzwecken
-#include "Libs/OneWire.h"	//
+#include "MoodPixel.h"
+#include "Libs/OneWire.h"
 #include "Libs/timer_delay.h"
 #include "Libs/rf12.h"
 #include "Libs/led_pwm.h"
 #include "Libs/script.h"
 
-#define mpxl_cmd_on		0x00
-#define mpxl_cmd_off	0x01
-#define mpxl_cmd_setRGB	0x02
-#define mpxl_cmd_setHSV 0x03
-#define mpxl_cmd_script 0x04
 
+struct fan_control fan = {fan_init,0,0,0};
 
-#define UART_BAUD_RATE 57600
-#define F_CPU 16000000
-
-
-void command(uint8_t *buf);
-
-
-
-void adjust_fanspeed()
-{
-	const uint16_t fansteps[6] = {900, 700, 500, 300, 100, 50};
-	start_meas();
-	uint16_t temp = read_meas();
-	uint8_t	Hight = (temp>>4);
-	uint8_t Lowt  = (temp << 12) / 6553;
-
-		
-
-
-
-	char buffer[10];
-	itoa( Hight, buffer, 10);
-	uart1_puts(buffer);
-	uart1_puts(".");
-	itoa( Lowt, buffer,10);
-	uart1_puts(buffer);
-
-		
-	
-}
 
 int main(void)
 {
-	//Initialisieren
-	uart1_init( UART_BAUD_SELECT(UART_BAUD_RATE,F_CPU) );  //Uart 1 initialisieren (Debug)
+	//Initialisieren der Komponenten
 	led_init();		//LED Initialisieren
 	td_init();		//Zeitbasis initialisieren
-	script_init();
+	script_init();	//Sriptengine initialisieren
 	
 	//Funkmodul initialisieren
-	rf12_init();					// ein paar Register setzen (z.B. CLK auf 10MHz)
-	rf12_setfreq(RF12FREQ(433.25));	// Sende/Empfangsfrequenz auf 433,92MHz einstellen
+	rf12_init();					
+	rf12_setfreq(RF12FREQ(433.25));	// 433,92MHz
 	rf12_setbandwidth(4, 1, 4);		// 200kHz Bandbreite, -6dB Verstärkung, DRSSI threshold: -79dBm 
 	rf12_setbaud(19200);			// 19200 baud
 	rf12_setpower(0, 6);			// 1mW Ausgangangsleistung, 120kHz Frequenzshift
 
 	sei();		//Interrupts aktivieren
 
-	set_fanspeed(1024);
-	
 	uint8_t buf_temp[10];
-	uint16_t temp = 0;
-	
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_init;
-	command(buf_temp);
-	
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_on;
-	command(buf_temp);
-
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_set;
-	buf_temp[2] = 0xff;
-	buf_temp[3] = 0x00;
-	buf_temp[4] = 0x00;
-	command(buf_temp);
-
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_wait;
-	buf_temp[2] = 0x05; 
-	command(buf_temp);
-	
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_fade;
-	buf_temp[2] = 0x00;
-	buf_temp[3] = 0xf0;
-	buf_temp[4] = 0x20;
-	buf_temp[5] = 0x05;
-	command(buf_temp);
-
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_wait;
-	buf_temp[2] = 0x05; 
-	command(buf_temp);
-
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_off;
-	command(buf_temp);
-
-
-	buf_temp[0] = mpxl_cmd_script;
-	buf_temp[1] = scrcmd_exec;
-	command(buf_temp);
-	
 	
 	//Mainloop
 	while(23)
 	{
-		//Wenn Zeichen empfangen wurden, wird der fertiggelesene 
-		//Emofangspuffer an die Command-Funktion übergeben
-		if (rf12_getStatus() == rf12_data_status_ready)
-		{
-			rf12_getData(buf_temp); 
-			rf_data_reset();
-			command(buf_temp);
-		}
-		
+		//Zustandsmaschinen aktualisieren
 		script_tick();
 		rgb_fade_tick();
-		//adjust_fanspeed();
+
+		//Prüfen ob ein neues Datenframe empfangen wurde.
+		if (rf12_getStatus() == rf12_data_status_ready)
+		{
+			rf12_getData(buf_temp); //Daten abholen
+			rf_data_reset();		//Empfangspuffer zurücksetzen
+			command(buf_temp);		//Empfangenes Kommando ausführen
+		}
 	}
 }	
 		
-
-
-void command(uint8_t *buf)
-{
-	/*
-	Folgende Kommands sind möglich:
-	0x00	=	MoodPxl einschalten
-	0x01	=	MoodPxl ausschalten
-	0x02	=	RGB Farbe setzen Param:
-						byte Rot; byte Grün; Byte Gelb;
-	0x03	=	HSV Farbe setzen Param:
-						word hue; byte saturation; byte Value
-			
-	0x10	=	Fader_Init Param: int Zeit; byte Rot; 
-						byte Grün; byte Gelb; int Verweilzeit;
-	0x02	=	Programm starten Paran: 
-	*/
-		
+//Kommunikation
+void command(uint8_t *buf) {
 	uint8_t m_comand = buf[0];
 	struct rgb rgb_color;
 	struct hsv hsv_color;
@@ -196,8 +98,15 @@ void command(uint8_t *buf)
 			set_led_color(&rgb_color);
 			break;
 			
+	   case mpxl_cmd_fade:
+			rgb_color.Red = buf[1];
+ 			rgb_color.Green = buf[2];
+ 			rgb_color.Blue = buf[3];
+ 			rgb_fade_int(rgb_color, buf[4]);
+ 			
 		case mpxl_cmd_script:
 			script_handler(buf);
 			break;
 	}		
 }
+

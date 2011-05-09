@@ -1,16 +1,37 @@
+/*
+    timer_delay implement eight 1sec Timebases
+    
+    Copyright (C) 2011  Jan-Daniel Georgens jd.georgens@gmail.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <stdlib.h>
 #include "timer_delay.h"
 
-
+//Deklaration der Variablen
 uint8_t timeout = 0;
 uint8_t run=0;
 uint8_t compare[8] 	 = {0,0,0,0,0,0,0,0};
 uint8_t td_timers[8] = {0,0,0,0,0,0,0,0};
 
-ISR(TIMER1_COMPA_vect)
-{
+//Die ISR wird im Sekundentakt aufgerufen.
+//Es wird geprüft, ob ein oder mehrere Timer abgelaufen sind,
+//falls ja werden die entsprechenden Flags gesetzt.
+ISR(TIMER1_COMPA_vect) {
 	
 	if (run & (1<<0)) 
 	{
@@ -93,16 +114,18 @@ ISR(TIMER1_COMPA_vect)
 	}
 }
 
-void td_init()
-{
+//Initialisiert den Timer
+void td_init() {
 	TCNT1 = (uint16_t)0;		//Zälregister 16bit Timer 3 zurücksetzen
 	OCR1A = (uint16_t)62500;	//Nächster interupt in 1s
 	TIMSK |= (1<<OCIE1A);		//Interrupt freischalten
 	TCCR1B |= (1<<CS12) | (1<<WGM12);
 }
 
-void td_setTimer(uint8_t index, uint8_t sec)
-{
+//Setzt einen Timer
+//index = Timer, welcher gesetzt werden soll
+//sec	= Zeit in Sekunden maximal 0xFF
+void td_setTimer(uint8_t index, uint8_t sec) {
 	if (index > 7) index = 7;
 	
 	td_timers[index] = 0;
@@ -112,8 +135,9 @@ void td_setTimer(uint8_t index, uint8_t sec)
 	run |= (1<<index);			
 }
 
-uint8_t td_timeout(uint8_t index)
-{
+//Muss zyklisch aufgerufen werden um zu prüfen ob der
+//Timer mit dem übergebenen Index abgelaufen ist.
+uint8_t td_timeout(uint8_t index) {
 	if (timeout & (1<<index))
 	{
 		

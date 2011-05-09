@@ -29,11 +29,6 @@
 
 #define T_PWM (F_CPU/(F_PWM*PWM_STEPS)) // Systemtakte pro PWM-Takt
  
-#if (T_PWM<(93+5))
-    #error T_PWM zu klein, F_CPU muss vergrösst werden oder F_PWM oder PWM_STEPS verkleinert werden
-#endif
-
-
 //Bildet eine RGB-Farbe ab.
 struct rgb
 {
@@ -75,6 +70,7 @@ extern void led_off(void);
 extern void set_fanspeed(uint16_t);
 extern void hsv2rgb(struct hsv *Color_hsv, struct rgb *Color_rgb);
 extern void led_sig_ok();
+extern void getColor_akt(struct rgb *Color);
 
 
 #define fader_idle 0
