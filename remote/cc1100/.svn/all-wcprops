@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/boopfirmware/!svn/ver/53/boop/trunk/cc1100
+END
+fs20.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/53/boop/trunk/cc1100/fs20.h
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/18/boop/trunk/cc1100/Make.conf
+END
+scan.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/40/boop/trunk/cc1100/scan.c
+END
+cc1100.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/cc1100/cc1100.c
+END
+rf.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/boopfirmware/!svn/ver/50/boop/trunk/cc1100/rf.c
+END
+scan.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/40/boop/trunk/cc1100/scan.h
+END
+fs20.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/53/boop/trunk/cc1100/fs20.c
+END
+cc1100.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/40/boop/trunk/cc1100/cc1100.h
+END
+rf.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/boopfirmware/!svn/ver/18/boop/trunk/cc1100/rf.h
+END

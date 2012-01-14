@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/boopfirmware/!svn/ver/45/boop/trunk/serial
+END
+serial.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/39/boop/trunk/serial/serial.c
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/13/boop/trunk/serial/Make.conf
+END
+redirector.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/45/boop/trunk/serial/redirector.c
+END
+serial.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/39/boop/trunk/serial/serial.h
+END
+serirq.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/13/boop/trunk/serial/serirq.c
+END
+redirector.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/13/boop/trunk/serial/redirector.h
+END

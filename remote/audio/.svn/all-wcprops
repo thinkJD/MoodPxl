@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/audio
+END
+sid.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/audio/sid.c
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/audio/Make.conf
+END
+sounds.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/audio/sounds.h
+END
+sid.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/audio/sid.h
+END
+soundirq.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/audio/soundirq.c
+END
+sidfiles.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/audio/sidfiles.h
+END
+sound.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/audio/sound.c
+END
+soundirq.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/audio/soundirq.h
+END
+sound.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/audio/sound.h
+END

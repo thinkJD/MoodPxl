@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svnroot/boopfirmware/!svn/ver/38/boop/trunk/tools
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/tools/Make.conf
+END
+scart_image.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/27/boop/trunk/tools/scart_image.h
+END
+toolsmenu.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/38/boop/trunk/tools/toolsmenu.c
+END
+scart_icp.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/23/boop/trunk/tools/scart_icp.c
+END
+toolsmenu.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/tools/toolsmenu.h
+END
+scart_icp.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/tools/scart_icp.h
+END
+scart_image_data.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/boopfirmware/!svn/ver/27/boop/trunk/tools/scart_image_data.h
+END

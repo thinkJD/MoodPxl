@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/boopfirmware/!svn/ver/53/boop/trunk/rtc
+END
+rtctimer.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/boopfirmware/!svn/ver/50/boop/trunk/rtc/rtctimer.h
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/50/boop/trunk/rtc/Make.conf
+END
+i2c.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/rtc/i2c.h
+END
+rtc.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/boopfirmware/!svn/ver/53/boop/trunk/rtc/rtc.c
+END
+rtctimer.c
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/boopfirmware/!svn/ver/50/boop/trunk/rtc/rtctimer.c
+END
+i2c.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/rtc/i2c.c
+END
+rtc.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/boopfirmware/!svn/ver/50/boop/trunk/rtc/rtc.h
+END

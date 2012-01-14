@@ -1,0 +1,245 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/boopfirmware/!svn/ver/54/boop/trunk/infrared
+END
+ir_recs80.c
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_recs80.c
+END
+infrared.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/17/boop/trunk/infrared/infrared.h
+END
+ir_recs80.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_recs80.h
+END
+ir_selector.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/boopfirmware/!svn/ver/21/boop/trunk/infrared/ir_selector.c
+END
+ir_rec80.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_rec80.c
+END
+ir_selector.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_selector.h
+END
+ir_rec80.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_rec80.h
+END
+infrared_encoders.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/infrared_encoders.h
+END
+ir_nrc17.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_nrc17.c
+END
+ir_rcmm.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_rcmm.c
+END
+ir_nrc17.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_nrc17.h
+END
+ir_itt.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_itt.c
+END
+ir_sirc.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_sirc.c
+END
+ir_capture.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/boopfirmware/!svn/ver/45/boop/trunk/infrared/ir_capture.c
+END
+ir_rcmm.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_rcmm.h
+END
+codes.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/54/boop/trunk/infrared/codes.c
+END
+ir_rca.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_rca.c
+END
+ir_itt.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_itt.h
+END
+ir_sirc.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_sirc.h
+END
+ir_rf.c
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_rf.c
+END
+codes.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/18/boop/trunk/infrared/codes.h
+END
+encoders.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/encoders.c
+END
+ir_capture.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_capture.h
+END
+ir_rca.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_rca.h
+END
+infraredirq.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/boopfirmware/!svn/ver/18/boop/trunk/infrared/infraredirq.c
+END
+ir_rf.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_rf.h
+END
+encoders.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/encoders.h
+END
+infraredirq.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/infraredirq.h
+END
+ir_spaceenc.c
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_spaceenc.c
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/Make.conf
+END
+ir_spaceenc.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_spaceenc.h
+END
+ir_rc5.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_rc5.c
+END
+ir_raw.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_raw.c
+END
+ir_lirc.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/18/boop/trunk/infrared/ir_lirc.c
+END
+ir_rc6.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/15/boop/trunk/infrared/ir_rc6.c
+END
+ir_rc5.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_rc5.h
+END
+ir_raw.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_raw.h
+END
+ir_lirc.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/18/boop/trunk/infrared/ir_lirc.h
+END
+ir_rc6.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/infrared/ir_rc6.h
+END
+infrared.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/18/boop/trunk/infrared/infrared.c
+END

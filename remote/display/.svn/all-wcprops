@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svnroot/boopfirmware/!svn/ver/49/boop/trunk/display
+END
+boop_logo
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/boop_logo
+END
+fonty.c
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/25/boop/trunk/display/fonty.c
+END
+iconHourglas.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/iconHourglas.h
+END
+lcd.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/48/boop/trunk/display/lcd.c
+END
+Hourglas_2bpp.bmp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/Hourglas_2bpp.bmp
+END
+fonty.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/boopfirmware/!svn/ver/24/boop/trunk/display/fonty.h
+END
+drawIcon.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/49/boop/trunk/display/drawIcon.c
+END
+iconHourglas2_t.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svnroot/boopfirmware/!svn/ver/49/boop/trunk/display/iconHourglas2_t.h
+END
+lcd.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svnroot/boopfirmware/!svn/ver/48/boop/trunk/display/lcd.h
+END
+Hourglas_t_3bpp_t.bmp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/Hourglas_t_3bpp_t.bmp
+END
+drawDigit.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/24/boop/trunk/display/drawDigit.c
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/Make.conf
+END
+drawDigit.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/24/boop/trunk/display/drawDigit.h
+END
+iconHourglas2.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/boopfirmware/!svn/ver/49/boop/trunk/display/iconHourglas2.h
+END
+iconHourglas_t.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/iconHourglas_t.h
+END
+backlight.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/display/backlight.c
+END
+GrayScaler.exe
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/GrayScaler.exe
+END
+icon.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/boopfirmware/!svn/ver/47/boop/trunk/display/icon.h
+END
+backlight.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/display/backlight.h
+END

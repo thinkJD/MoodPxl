@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/keyboard
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/keyboard/Make.conf
+END
+keyboard.c
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/24/boop/trunk/keyboard/keyboard.c
+END
+keyirq.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/keyboard/keyirq.c
+END
+keyboard.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/boopfirmware/!svn/ver/39/boop/trunk/keyboard/keyboard.h
+END
+keyirq.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/keyboard/keyirq.h
+END

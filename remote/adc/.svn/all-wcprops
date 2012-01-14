@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/adc
+END
+Make.conf
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/adc/Make.conf
+END
+adcirq.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/adc/adcirq.c
+END
+adc.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/adc/adc.c
+END
+adcirq.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svnroot/boopfirmware/!svn/ver/1/boop/trunk/adc/adcirq.h
+END
+adc.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svnroot/boopfirmware/!svn/ver/44/boop/trunk/adc/adc.h
+END
